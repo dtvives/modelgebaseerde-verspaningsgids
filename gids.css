@@ -67,3 +67,4 @@ footer { border-top: 1px solid var(--line); padding-block: 18px 28px; margin-top
   .grid { grid-template-columns: 1fr; }
   .wide { display: none; }
 }
+select { font: inherit; width: 100%; padding: 8px; border: 1px solid #80948a; border-radius: 5px; } .trial-result { font-size: 1.25rem; }

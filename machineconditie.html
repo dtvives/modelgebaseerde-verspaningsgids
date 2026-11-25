@@ -17,9 +17,25 @@
 <div><dt>Draaien</dt><dd>Volg bijvoorbeeld het lager van de werkstukspil. Vergelijk dezelfde toerentalband, opspanning en belasting, of herhaal een vaste onbelaste proefloop.</dd></div>
 <div><dt>Frezen</dt><dd>Volg bijvoorbeeld het lager van de freesspil bij een vaste proefloop. Registreer bij metingen in snede ook houder en tandenaantal. Tandpassage kan zelf een piek in het spectrum veroorzaken.</dd></div>
 </dl></section>
+<section class="lab" data-model="machineconditie" aria-label="Vergelijk vier opeenvolgende proeflopen">
+  <div class="lab-controls"><h2>Vergelijk vier opeenvolgende proeflopen</h2><p>Kies welke fictieve trillingsmetingen je vergelijkt. Sensorpositie en meetband blijven gelijk.</p>
+    <form><label for="v0">Reeks</label>
+<select id="v0"><option>Vast toerental · 3000 omw/min</option><option>Wisselend · 3000 tot 6000 omw/min</option></select></form>
+    <output class="trial-result" aria-live="polite"></output>
+  </div>
+  <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
+</section>
+<script defer src="proeven.js"></script>
 <section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Voor de trend: trillingssnelheid RMS in mm/s van een geschikte sensor, of bandbegrensde integratie van gekalibreerde accelerometerdata. Noteer montage, richting, toerental, belasting en meetband. Voor lagerfrequenties ook aantal rolelementen, diameter van rolelement en steekcirkel en contacthoek uit de lagerfiche. Gebruik werkelijk toerental uit CNC of tachometer. Voor tijd tot een grens: vergelijkbare historische vensters, verlopen draaiuren en een onderbouwde interventiegrens.</p></section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een eigen referentiereeks toont de normale variatie per toerental en belasting. Stel dat bij dezelfde proefloop de trillingssnelheid van 2,0 naar 3,0 mm/s RMS stijgt. Dat is een stijging van <strong>50%</strong> en een reden om montage en conditie te controleren. Voor een lagerdiagnose heb je aanvullende aanwijzingen nodig.</p></section>
 <section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Leg meetpunt, richting, frequentieband, toerental en bedrijfstoestand vast. Verzamel meerdere referentiemetingen bij bekende goede toestand.</li><li>Volg de trend bij vergelijkbare proeflopen. Herhaal een afwijkende meting na controle van sensor en montage. Gebruik bij een vermoeden van lagerschade de lagergeometrie en werkelijke snelheid om het spectrum te onderzoeken.</li><li>Leg waarschuwingen uit een volgende periode naast inspecties en onderhoudsbevindingen. Tel ook meldingen zonder gevonden defect. Een voorspelling van resterende draaiuren vraagt bovendien historische trajecten met een gekend eindpunt.</li></ol></section>
+<section class="reading">
+  <details><summary>Formule en toepassingsgrenzen</summary>
+    <p><strong>Trendhelling = verandering van trillingsniveau / verstreken draaiuren</strong></p>
+    <p>Gebruik vergelijkbare proeflopen en dezelfde meetband. Van 2,0 naar 3,0 mm/s RMS over 100 draaiuren geeft gemiddeld 0,01 (mm/s) per draaiuur. Gebruik bij meerdere meetpunten een trendlijn en bekijk de spreiding.</p>
+    <p>Bij een stabiele stijgende trend geeft (interventiegrens − huidig niveau) / trendhelling een schatting van de draaiuren tot die grens. De grens en de trend moeten bij dit meetpunt en deze bedrijfstoestand passen. Een voorspelde grensoverschrijding vraagt een inspectie om het mechanisme te bepalen.</p>
+  </details>
+</section>
 <p><a href="index.html">Terug naar alle modellen</a></p></main>
 <footer class="wrap">COOCK+ · VIVES en Sirris</footer>
 </body>

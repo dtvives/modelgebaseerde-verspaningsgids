@@ -17,9 +17,25 @@
 <div><dt>Draaien</dt><dd>Label bijvoorbeeld laden, spil aan, draaien in snede en wachten. Controleer met de operator welke programmafasen werkelijk materiaal afnemen.</dd></div>
 <div><dt>Frezen</dt><dd>Onderscheid snijden, ijlgang, gereedschapswissel en palletwissel. De spil kan ook tussen twee sneden draaien. Gebruik bij meerdere stukken per opspanning het werkelijke stukaantal.</dd></div>
 </dl></section>
+<section class="lab" data-model="machinebenutting" aria-label="Welke minuten tellen als snijtijd?">
+  <div class="lab-controls"><h2>Welke minuten tellen als snijtijd?</h2><p>Een fictief uur bestaat uit 42 minuten bevestigd snijden, een blok van 6 minuten met draaiende spil en 12 minuten stilstand. Beoordeel het blok van 6 minuten.</p>
+    <form><label for="v0">Classificatie volgens de operator</label>
+<select id="v0"><option>Snijden</option><option>Spoelen</option></select></form>
+    <output class="trial-result" aria-live="polite"></output>
+  </div>
+  <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
+</section>
+<script defer src="proeven.js"></script>
 <section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Automatisch uit de CNC: cyclus, spiltoerental, programma, werkelijke voeding en tijdstempels. Voor detectie van snijden gebruikt het Python-model toerental en vermogen ten opzichte van nullast. Een stroomtang of trillingssensor kan met bedrijfslabels een activiteitsproxy leveren. Planning, nominale voeding of ideale cyclustijd komen uit werkvoorbereiding. Goede, afgekeurde en eventueel herwerkte stukken komen uit de kwaliteitsregistratie of van de operator.</p></section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een operator kan een stroom- of trillingsplateau herkennen als bijvoorbeeld werken, spoelen of wachten. Stel dat de detectie in een uur 48 minuten als snijden telt. Uit het programmalog blijkt dat zes van die minuten spoelen waren. Als de overige intervallen juist zijn, daalt het geschatte aandeel snijtijd van 80% naar <strong>70%</strong>.</p></section>
 <section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Spreek af welke tijden meetellen. Kies een dienst en registreer geplande tijd, CNC-toestand, programma en operatorlabels op dezelfde klok.</li><li>Vergelijk de automatisch herkende toestanden per interval met die labels. Pas regels aan op een eerste dienst. Leg voor volledige OEE ook de prestatieformule, de aantallen goed/afkeur en hun herkomst vast.</li><li>Gebruik een andere dienst als toets. Vergelijk minuten per toestand, controleer de stukaantallen met de kwaliteitsregistratie en herbereken elke OEE-component. Rapporteer onbekende tijd of ontbrekende kwaliteitsgegevens apart.</li></ol></section>
+<section class="reading">
+  <details><summary>Formule en toepassingsgrenzen</summary>
+    <p><strong>OEE = beschikbaarheid × prestatie × kwaliteit</strong></p>
+    <p>Reken met fracties en zet de uitkomst om naar procent. In de projectvariant is beschikbaarheid de spiltijd gedeeld door de geplande tijd. Prestatie wordt benaderd door (snijtijd / spiltijd) × (werkelijke / nominale voeding). Bij klassieke OEE steunt prestatie op ideale cyclustijd en geproduceerde aantallen. Leg de gekozen definitie vast.</p>
+    <p>Kwaliteit = goede stukken / totaal geproduceerde stukken bij volledige kwaliteitsregistratie. Bij 0,90 beschikbaarheid, 0,80 prestatie en 0,95 kwaliteit is OEE 68,4%. Bij onbekende kwaliteit of een nulnoemer blijft de totaalscore open.</p>
+  </details>
+</section>
 <p><a href="index.html">Terug naar alle modellen</a></p></main>
 <footer class="wrap">COOCK+ · VIVES en Sirris</footer>
 </body>

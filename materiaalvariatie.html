@@ -17,9 +17,25 @@
 <div><dt>Draaien</dt><dd>Vergelijk staven uit twee batches bij gelijke snijsnelheid, voeding per omwenteling, snedediepte en snijkanttoestand. Neem per stuk een vergelijkbaar segment in volle snede.</dd></div>
 <div><dt>Frezen</dt><dd>Vergelijk dezelfde freesbaan in beide batches. Houd voeding per tand en axiale en radiale ingreep gelijk. Gebruik een vergelijkbaar venster uit de baan, omdat in- en uitlopen de belasting veranderen.</dd></div>
 </dl></section>
+<section class="lab" data-model="materiaalvariatie" aria-label="Vergelijk de kracht van twee batches">
+  <div class="lab-controls"><h2>Vergelijk de kracht van twee batches</h2><p>Elke waarde is een fictieve snede in dezelfde freesbaan. Kies onder welke gereedschapsconditie batch B werd gemeten.</p>
+    <form><label for="v0">Snijkant bij batch B</label>
+<select id="v0"><option>Verse snijkant zoals bij A</option><option>Verder versleten snijkant</option></select></form>
+    <output class="trial-result" aria-live="polite"></output>
+  </div>
+  <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
+</section>
+<script defer src="proeven.js"></script>
 <section class="reading"><h2>Welke gegevens heb je nodig?</h2><dl class="sources"><div><dt>Krachtafwijking</dt><dd>Gemeten kracht (dynamometer) of gevalideerde kracht uit netto vermogen en snijsnelheid. Verwachte kracht uit referentiesnede en slijtagecorrectie. Relatief verschil tussen waargenomen en verwachte belasting. De bron noemt dit een hardheidsafwijking. De berekening levert geen rechtstreeks gemeten verschil in Vickers-hardheid.</dd></div><div><dt>Akoestische-emissieverhouding</dt><dd>AE-sensor met passende hoogfrequente acquisitie en reproduceerbare koppeling. Deel AE-RMS door de AE-referentie van het materiaal onder gelijke omstandigheden. Vergelijk twee batchverdelingen. Een gewone microfoon vraagt een andere meetmethode en kalibratie.</dd></div><div><dt>Ongewone pieken</dt><dd>AE-pieken en/of krachtgeschiedenis volgens het beschikbare detectiepad, baseline, stuk- en batch-ID. Markeer het tijdstip en zoom in op de snede. Een inspectie moet uitwijzen of er een insluiting aanwezig was.</dd></div></dl></section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een referentiebatch helpt materiaalverschillen onderscheiden van slijtage of gewijzigde snijcondities. Stel dat dezelfde snede bij batch A gemiddeld 200 N vraagt en bij batch B 230 N. De gemeten kracht ligt <strong>15% hoger</strong>. Dat is een verschil in snijgedrag; de oorzaak moet nog worden vastgesteld.</p></section>
 <section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Registreer batch, gereedschapstoestand, programma, snijcondities en koeling. Meet de kracht met een dynamometer of gebruik een getoetste krachtschatting.</li><li>Meet meerdere stukken per batch en wissel waar praktisch de meetvolgorde af. Vergelijk het verschil tussen batchgemiddelden met de spreiding binnen elke batch. Controleer of slijtage mee is veranderd.</li><li>Toets het patroon op apart gehouden stukken. Vergelijk de uitkomst met een onafhankelijke hardheidsmeting of materiaalinspectie als hardheid of insluitingen de hypothese zijn. Zonder die bevestiging rapporteer je alleen de waargenomen afwijking.</li></ol></section>
+<section class="reading">
+  <details><summary>Formule en toepassingsgrenzen</summary>
+    <p><strong>Relatief krachtverschil (%) = 100 × (F − Fref) / Fref</strong></p>
+    <p>F en Fref zijn krachten in N uit vergelijkbare sneden. Bij 230 N tegenover 200 N is het verschil +15%. Herhaal op meerdere stukken en houd rekening met gereedschapsslijtage. Een hardheidsverschil toets je afzonderlijk met een materiaalproef.</p>
+    <p>Voor akoestische emissie gebruikt het model de verhouding AE-RMS / AE-referentie. Beide waarden vragen dezelfde meetschaal, koppeling en bewerkingsfase. Beide verhoudingen vereisen een positieve referentie.</p>
+  </details>
+</section>
 <p><a href="index.html">Terug naar alle modellen</a></p></main>
 <footer class="wrap">COOCK+ · VIVES en Sirris</footer>
 </body>

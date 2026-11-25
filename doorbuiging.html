@@ -17,9 +17,27 @@
 <div><dt>Draaien</dt><dd>Bij een kotterbaar kan een balkmodel bruikbaar zijn. Meet de uitsteek, bepaal de buigstijfheid van de baar en de kracht dwars op de baar. Bij een slanke as kan juist het werkstuk doorbuigen. Controleer de diameter op meerdere posities.</dd></div>
 <div><dt>Frezen</dt><dd>De uitwerking hieronder betreft een uitkragende frees. Gebruik de effectieve kerndiameter, uitsteek en radiale freesbelasting. Vergelijk de voorspelde uitwijking met de gemeten wandafwijking.</dd></div>
 </dl></section>
+<section class="lab" data-model="doorbuiging" aria-label="Vergelijk twee uitsteeklengtes">
+  <div class="lab-controls"><h2>Vergelijk twee uitsteeklengtes</h2><p>Dezelfde frees en radiale belasting. Vergelijk de voorspelling met de wandafwijking op een proefstuk.</p>
+    <form><label for="v0">Eerste uitsteek (mm)</label>
+<input type="number" id="v0" value="50" min="1" max="300" step="any" required>
+<label for="v1">Tweede uitsteek (mm)</label>
+<input type="number" id="v1" value="40" min="1" max="300" step="any" required></form>
+    <output class="trial-result" aria-live="polite"></output>
+  </div>
+  <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
+</section>
+<script defer src="proeven.js"></script>
 <section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Meet radiale kracht Fp in N met een dynamometer of schat die uit referentiesnijkracht, radiale krachtverhouding en een eventuele VB-correctie. Leg de herkomst vast: een vermogensmeter levert via snijsnelheid eerst een tangentiële kracht. Uitsteek en kerndiameter in mm komen uit een meting aan de gemonteerde frees of de gereedschapsfiche. Elasticiteitsmodulus komt uit materiaalgegevens. Bepaal de machine-/houderstijfheid in N/mm uit een bekende belasting en gemeten verplaatsing, of markeer de referentiewaarde als aanname.</p></section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een belastingproef maakt de stijfheid van de eigen opspanning meetbaar. Stel dat een radiale proefkracht van 100 N een verplaatsing van 5 µm geeft. De effectieve stijfheid tussen de gekozen meetpunten is dan 100 / 0,005 = <strong>20.000 N/mm</strong>. Wat je mag invullen in het model hangt af van waar je meet.</p></section>
 <section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Leg gereedschap, uitsteek, opspanning, krachtrichting en meetpunten vast. Meet bij een stilstaande opstelling met een gekende proefkracht en een verplaatsingsmeter.</li><li>Herhaal bij enkele belastingen en na ontlasten. Bepaal de stijfheid uit de helling van kracht tegen verplaatsing. Omvat de meting ook het buigende gereedschap, dan zit die bijdrage al in de gemeten totale vervorming.</li><li>Voorspel de verplaatsing bij een afzonderlijke belasting en vergelijk met de meetklok in µm. Toets vervolgens op een proefstuk of richting en grootte van de voorspelde maatfout overeenkomen met de maatcontrole.</li></ol></section>
+<section class="reading">
+  <details><summary>Formule en toepassingsgrenzen</summary>
+    <p><strong>δ = F × L³ / (3 × E × I)</strong></p>
+    <p>Voor een ingeklemde ronde balk met een radiale puntlast aan het uiteinde is F de kracht in N, L de vrije lengte in mm, E de elasticiteitsmodulus in N/mm² en I = π × d⁴ / 64 het oppervlaktetraagheidsmoment in mm⁴. Gebruik voor d de effectieve kerndiameter. De uitkomst is in mm. Vermenigvuldig met 1000 voor µm.</p>
+    <p>Voor een apart gekarakteriseerde machinebijdrage geldt δ = F / k. Bij 100 N en 20.000 N/mm is dat 0,005 mm of 5 µm. Tel de balkbijdrage alleen op als de gemeten stijfheid k die vervorming uitsluit.</p>
+  </details>
+</section>
 <p><a href="index.html">Terug naar alle modellen</a></p></main>
 <footer class="wrap">COOCK+ · VIVES en Sirris</footer>
 </body>
