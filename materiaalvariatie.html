@@ -9,7 +9,10 @@
 <body>
 <header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
   <a class="brand" href="index.html">Verspaningsgids</a>
-  <div><a href="index.html">Overzicht</a><a href="ruwheid.html">Ruwheid</a><a href="energie.html">Energie</a></div>
+  <div>
+    <a href="index.html">Overzicht</a>
+    <a href="bronnen.html">Modellen per meetopstelling</a>
+  </div>
 </nav></header>
 <main class="wrap"><section class="hero detail"><p class="eyebrow">Kwaliteit · Materiaalvariatie</p><h1>Gedraagt deze materiaalbatch zich anders?</h1><p class="intro">Een afwijkende batch selecteren voor materiaalonderzoek. Vergelijk alleen dezelfde snede, hetzelfde gereedschap en vergelijkbare slijtage.</p></section>
 <section class="reading"><h2>Toepassing bij draaien en frezen</h2>
@@ -26,7 +29,14 @@
   <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
 </section>
 <script defer src="proeven.js"></script>
-<section class="reading"><h2>Welke gegevens heb je nodig?</h2><dl class="sources"><div><dt>Krachtafwijking</dt><dd>Gemeten kracht (dynamometer) of gevalideerde kracht uit netto vermogen en snijsnelheid. Verwachte kracht uit referentiesnede en slijtagecorrectie. Relatief verschil tussen waargenomen en verwachte belasting. De bron noemt dit een hardheidsafwijking. De berekening levert geen rechtstreeks gemeten verschil in Vickers-hardheid.</dd></div><div><dt>Akoestische-emissieverhouding</dt><dd>AE-sensor met passende hoogfrequente acquisitie en reproduceerbare koppeling. Deel AE-RMS door de AE-referentie van het materiaal onder gelijke omstandigheden. Vergelijk twee batchverdelingen. Een gewone microfoon vraagt een andere meetmethode en kalibratie.</dd></div><div><dt>Ongewone pieken</dt><dd>AE-pieken en/of krachtgeschiedenis volgens het beschikbare detectiepad, baseline, stuk- en batch-ID. Markeer het tijdstip en zoom in op de snede. Een inspectie moet uitwijzen of er een insluiting aanwezig was.</dd></div></dl></section>
+<section class="reading"><h2>Welke gegevens heb je nodig?</h2><dl class="sources"><div><dt>Krachtafwijking</dt><dd>Gemeten kracht (dynamometer) of gevalideerde kracht uit netto vermogen en snijsnelheid. Verwachte kracht uit referentiesnede en slijtagecorrectie. Relatief verschil tussen waargenomen en verwachte belasting. De bron noemt dit een hardheidsafwijking. De berekening levert geen rechtstreeks gemeten verschil in Vickers-hardheid.</dd></div><div><dt>Akoestische-emissieverhouding</dt><dd>AE-sensor met passende hoogfrequente acquisitie en reproduceerbare koppeling. Deel AE-RMS door de AE-referentie van het materiaal onder gelijke omstandigheden. Vergelijk twee batchverdelingen. Een gewone microfoon vraagt een andere meetmethode en kalibratie.</dd></div><div><dt>Ongewone pieken</dt><dd>AE-pieken en/of krachtgeschiedenis volgens het beschikbare detectiepad, baseline, stuk- en batch-ID. Markeer het tijdstip en zoom in op de snede. Een inspectie moet uitwijzen of er een insluiting aanwezig was.</dd></div></dl>
+    <h3>Wat kan jouw meetopstelling?</h3>
+    <dl class="sources">
+      <div><dt>Sensorbox <a class="model-status indicator" href="bronnen.html#box-materiaalvariatie">Alleen indicatie</a></dt><dd>Je kunt een verandering in snijgedrag zien. Zonder batchgegevens kun je die niet aan het materiaal toeschrijven.</dd></div>
+      <div><dt>Sensorbox + machinedata <a class="model-status indicator" href="bronnen.html#box-cnc-materiaalvariatie">Alleen indicatie</a></dt><dd>Vergelijk belasting en trilling tijdens dezelfde snede. Voor een vergelijking per batch heb je ook batch-ID en de toestand van de snijkant nodig.</dd></div>
+      <div><dt>Sensorbox + machinedata + operatorfeedback <a class="model-status direct" href="bronnen.html#box-cnc-operator-materiaalvariatie">Direct bruikbaar</a></dt><dd>Laat de operator batch en snijkant registreren. Vergelijk dezelfde snede tussen batches en toets een vermoed materiaalverschil met een materiaalmeting.</dd></div>
+    </dl>
+  </section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een referentiebatch helpt materiaalverschillen onderscheiden van slijtage of gewijzigde snijcondities. Stel dat dezelfde snede bij batch A gemiddeld 200 N vraagt en bij batch B 230 N. De gemeten kracht ligt <strong>15% hoger</strong>. Dat is een verschil in snijgedrag; de oorzaak moet nog worden vastgesteld.</p></section>
 <section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Registreer batch, gereedschapstoestand, programma, snijcondities en koeling. Meet de kracht met een dynamometer of gebruik een getoetste krachtschatting.</li><li>Meet meerdere stukken per batch en wissel waar praktisch de meetvolgorde af. Vergelijk het verschil tussen batchgemiddelden met de spreiding binnen elke batch. Controleer of slijtage mee is veranderd.</li><li>Toets het patroon op apart gehouden stukken. Vergelijk de uitkomst met een onafhankelijke hardheidsmeting of materiaalinspectie als hardheid of insluitingen de hypothese zijn. Zonder die bevestiging rapporteer je alleen de waargenomen afwijking.</li></ol></section>
 <section class="reading">

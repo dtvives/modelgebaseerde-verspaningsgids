@@ -9,7 +9,10 @@
 <body>
 <header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
   <a class="brand" href="index.html">Verspaningsgids</a>
-  <div><a href="index.html">Overzicht</a><a href="ruwheid.html">Ruwheid</a><a href="energie.html">Energie</a></div>
+  <div>
+    <a href="index.html">Overzicht</a>
+    <a href="bronnen.html">Modellen per meetopstelling</a>
+  </div>
 </nav></header>
 <main class="wrap"><section class="hero detail"><p class="eyebrow">Procesbewaking · Machineconditie</p><h1>Verandert de conditie van spil of lager?</h1><p class="intro">Een inspectie plannen op basis van een veranderende trillingstrend. Een diagnose vraagt meer informatie dan een trendmelding.</p></section>
 <section class="reading"><h2>Toepassing bij draaien en frezen</h2>
@@ -26,7 +29,14 @@
   <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
 </section>
 <script defer src="proeven.js"></script>
-<section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Voor de trend: trillingssnelheid RMS in mm/s van een geschikte sensor, of bandbegrensde integratie van gekalibreerde accelerometerdata. Noteer montage, richting, toerental, belasting en meetband. Voor lagerfrequenties ook aantal rolelementen, diameter van rolelement en steekcirkel en contacthoek uit de lagerfiche. Gebruik werkelijk toerental uit CNC of tachometer. Voor tijd tot een grens: vergelijkbare historische vensters, verlopen draaiuren en een onderbouwde interventiegrens.</p></section>
+<section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Voor de trend: trillingssnelheid RMS in mm/s van een geschikte sensor, of bandbegrensde integratie van gekalibreerde accelerometerdata. Noteer montage, richting, toerental, belasting en meetband. Voor lagerfrequenties ook aantal rolelementen, diameter van rolelement en steekcirkel en contacthoek uit de lagerfiche. Gebruik werkelijk toerental uit CNC of tachometer. Voor tijd tot een grens: vergelijkbare historische vensters, verlopen draaiuren en een onderbouwde interventiegrens.</p>
+    <h3>Wat kan jouw meetopstelling?</h3>
+    <dl class="sources">
+      <div><dt>Sensorbox <a class="model-status direct" href="bronnen.html#box-machineconditie">Direct bruikbaar</a></dt><dd>Bij vaste sensormontage kun je veranderingen in trillingsniveau volgen. Vergelijk proeflopen bij dezelfde belasting.</dd></div>
+      <div><dt>Sensorbox + machinedata <a class="model-status direct" href="bronnen.html#box-cnc-machineconditie">Direct bruikbaar</a></dt><dd>Vergelijk trilling bij hetzelfde toerental en dezelfde belasting. Zo kun je per bedrijfstoestand een alarm instellen.</dd></div>
+      <div><dt>Sensorbox + machinedata + operatorfeedback <a class="model-status direct" href="bronnen.html#box-cnc-operator-machineconditie">Direct bruikbaar</a></dt><dd>Volg trilling bij gelijk toerental en gelijke belasting. Koppel een alarm aan wat de operator bij inspectie aantreft.</dd></div>
+    </dl>
+  </section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een eigen referentiereeks toont de normale variatie per toerental en belasting. Stel dat bij dezelfde proefloop de trillingssnelheid van 2,0 naar 3,0 mm/s RMS stijgt. Dat is een stijging van <strong>50%</strong> en een reden om montage en conditie te controleren. Voor een lagerdiagnose heb je aanvullende aanwijzingen nodig.</p></section>
 <section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Leg meetpunt, richting, frequentieband, toerental en bedrijfstoestand vast. Verzamel meerdere referentiemetingen bij bekende goede toestand.</li><li>Volg de trend bij vergelijkbare proeflopen. Herhaal een afwijkende meting na controle van sensor en montage. Gebruik bij een vermoeden van lagerschade de lagergeometrie en werkelijke snelheid om het spectrum te onderzoeken.</li><li>Leg waarschuwingen uit een volgende periode naast inspecties en onderhoudsbevindingen. Tel ook meldingen zonder gevonden defect. Een voorspelling van resterende draaiuren vraagt bovendien historische trajecten met een gekend eindpunt.</li></ol></section>
 <section class="reading">

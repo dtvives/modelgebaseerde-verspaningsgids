@@ -9,7 +9,10 @@
 <body>
 <header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
   <a class="brand" href="index.html">Verspaningsgids</a>
-  <div><a href="index.html">Overzicht</a><a href="ruwheid.html">Ruwheid</a><a href="energie.html" aria-current="page">Energie</a></div>
+  <div>
+    <a href="index.html">Overzicht</a>
+    <a href="bronnen.html">Modellen per meetopstelling</a>
+  </div>
 </nav></header>
 <main class="wrap">
   <section class="hero detail">
@@ -46,7 +49,7 @@
   <section class="reading">
     <h2>Wat heb je nodig op de machine?</h2>
     <dl class="sources">
-      <div><dt>Energie of actief vermogen <span>Elektrische meting</span></dt><dd>Lees de begin- en eindstand in kWh af van een energiemeter, of log actief vermogen met een geschikte vermogensmeter. Op een driefasenmachine gebruik je een gevalideerde driefasenmeting. Fasestroom in A alleen volstaat niet om kWh te bepalen.</dd></div>
+      <div><dt>Energie of actief vermogen <span>Elektrische meting</span></dt><dd>Lees de begin- en eindstand in kWh af van een energiemeter, of log actief vermogen met een geschikte vermogensmeter. Op een driefasenmachine gebruik je een gevalideerde driefasenmeting. Met alleen een stroommeting kun je kWh schatten. Bij ongeveer symmetrische driefasenbelasting geldt P (kW) ≈ √3 × lijnspanning (V) × RMS-lijnstroom (A) × totale vermogensfactor / 1000. Neem de netspanning en vermogensfactor aan en tel per interval P × tijd in uren op. Toets de schatting bij stilstand en tijdens bewerking aan een kWh-meter op hetzelfde meetpunt.</dd></div>
       <div><dt>Begin en einde <span>CNC of operator</span></dt><dd>Gebruik tijdstippen uit het programma of laat de operator ze noteren. Spreek af of opwarmen, wachten en hulpverbruik in de meting zitten. Hanteer bij elke vergelijking dezelfde meetgrens.</dd></div>
       <div><dt>Goedgekeurde stukken <span>Kwaliteitsregistratie</span></dt><dd>Gebruik goedgekeurde aantallen uit de registratie of laat de operator ze tellen. Een gewone CNC-stukteller telt mogelijk ook afkeur. Het verbruik van die afkeur zit wel in je meetvenster.</dd></div>
     </dl>
@@ -54,6 +57,13 @@
       <p><strong>kWh per goed stuk = energie in het meetvenster / aantal goede stukken.</strong> Bij gemiddeld vermogen in kW is de energie gelijk aan vermogen × minuten / 60. Bij wisselend vermogen tel je de energie per tijdstap op of gebruik je het verschil tussen twee meterstanden.</p>
       <p>Vergelijk de uitkomst met het verschil op de energiemeter over hetzelfde venster. Bij nul goede stukken blijft het totale verbruik bruikbaar en is de waarde per goed stuk onbepaald.</p>
     </details>
+  
+    <h3>Wat kan jouw meetopstelling?</h3>
+    <dl class="sources">
+      <div><dt>Sensorbox <a class="model-status estimate" href="bronnen.html#box-energie">Schatting</a></dt><dd>Schat kWh uit RMS-stroom, vaste netspanning en een aangenomen vermogensfactor. Voor kWh per stuk moet ook het aantal stukken in het meetvenster bekend zijn.</dd></div>
+      <div><dt>Sensorbox + machinedata <a class="model-status direct" href="bronnen.html#box-cnc-energie">Direct bruikbaar</a></dt><dd>Levert de CNC actief vermogen of een energieteller, dan bereken je kWh per cyclus. Met een teller voor goede stukken krijg je ook kWh per goed stuk.</dd></div>
+      <div><dt>Sensorbox + machinedata + operatorfeedback <a class="model-status direct" href="bronnen.html#box-cnc-operator-energie">Direct bruikbaar</a></dt><dd>Gebruik CNC-energie of laat de operator een kWh-meter aflezen. Deel het verschil in kWh door het bevestigde aantal goede stukken uit dezelfde periode.</dd></div>
+    </dl>
   </section>
 </main>
 <script src="gids.js"></script>

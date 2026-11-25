@@ -9,7 +9,10 @@
 <body>
 <header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
   <a class="brand" href="index.html">Verspaningsgids</a>
-  <div><a href="index.html">Overzicht</a><a href="ruwheid.html">Ruwheid</a><a href="energie.html">Energie</a></div>
+  <div>
+    <a href="index.html">Overzicht</a>
+    <a href="bronnen.html">Modellen per meetopstelling</a>
+  </div>
 </nav></header>
 <main class="wrap"><section class="hero detail"><p class="eyebrow">Kwaliteit · Doorbuiging</p><h1>Kan doorbuiging mijn maatafwijking verklaren?</h1><p class="intro">Inschatten hoeveel een frees en de machine elastisch meegeven onder radiale belasting. De uitkomst in µm kan naast de maattolerantie worden gezet.</p></section>
 <section class="reading"><h2>Toepassing bij draaien en frezen</h2>
@@ -28,7 +31,14 @@
   <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
 </section>
 <script defer src="proeven.js"></script>
-<section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Meet radiale kracht Fp in N met een dynamometer of schat die uit referentiesnijkracht, radiale krachtverhouding en een eventuele VB-correctie. Leg de herkomst vast: een vermogensmeter levert via snijsnelheid eerst een tangentiële kracht. Uitsteek en kerndiameter in mm komen uit een meting aan de gemonteerde frees of de gereedschapsfiche. Elasticiteitsmodulus komt uit materiaalgegevens. Bepaal de machine-/houderstijfheid in N/mm uit een bekende belasting en gemeten verplaatsing, of markeer de referentiewaarde als aanname.</p></section>
+<section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Meet radiale kracht Fp in N met een dynamometer of schat die uit referentiesnijkracht, radiale krachtverhouding en een eventuele VB-correctie. Leg de herkomst vast: een vermogensmeter levert via snijsnelheid eerst een tangentiële kracht. Uitsteek en kerndiameter in mm komen uit een meting aan de gemonteerde frees of de gereedschapsfiche. Elasticiteitsmodulus komt uit materiaalgegevens. Bepaal de machine-/houderstijfheid in N/mm uit een bekende belasting en gemeten verplaatsing, of markeer de referentiewaarde als aanname.</p>
+    <h3>Wat kan jouw meetopstelling?</h3>
+    <dl class="sources">
+      <div><dt>Sensorbox <a class="model-status missing" href="bronnen.html#box-doorbuiging">Niet mogelijk</a></dt><dd>Trilling en stroom leveren geen radiale kracht of gereedschapsgeometrie. Een doorbuiging in µm is hiermee niet te bepalen.</dd></div>
+      <div><dt>Sensorbox + machinedata <a class="model-status estimate" href="bronnen.html#box-cnc-doorbuiging">Schatting</a></dt><dd>Een schatting vraagt een radiale kracht of een getoetst krachtmodel, plus uitsteek, geometrie en stijfheid. Spilbelasting alleen volstaat niet.</dd></div>
+      <div><dt>Sensorbox + machinedata + operatorfeedback <a class="model-status estimate" href="bronnen.html#box-cnc-operator-doorbuiging">Schatting</a></dt><dd>Combineer kracht, uitsteek, geometrie en stijfheid. Toets de voorspelling met een maatmeting. Ook met operatorfeedback blijft een geschikte krachtbron of een getoetst krachtmodel nodig.</dd></div>
+    </dl>
+  </section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een belastingproef maakt de stijfheid van de eigen opspanning meetbaar. Stel dat een radiale proefkracht van 100 N een verplaatsing van 5 µm geeft. De effectieve stijfheid tussen de gekozen meetpunten is dan 100 / 0,005 = <strong>20.000 N/mm</strong>. Wat je mag invullen in het model hangt af van waar je meet.</p></section>
 <section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Leg gereedschap, uitsteek, opspanning, krachtrichting en meetpunten vast. Meet bij een stilstaande opstelling met een gekende proefkracht en een verplaatsingsmeter.</li><li>Herhaal bij enkele belastingen en na ontlasten. Bepaal de stijfheid uit de helling van kracht tegen verplaatsing. Omvat de meting ook het buigende gereedschap, dan zit die bijdrage al in de gemeten totale vervorming.</li><li>Voorspel de verplaatsing bij een afzonderlijke belasting en vergelijk met de meetklok in µm. Toets vervolgens op een proefstuk of richting en grootte van de voorspelde maatfout overeenkomen met de maatcontrole.</li></ol></section>
 <section class="reading">

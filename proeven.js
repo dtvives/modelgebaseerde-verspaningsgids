@@ -117,3 +117,4 @@ form.addEventListener("input", updateTrial);
 form.addEventListener("submit", event => event.preventDefault());
 new ResizeObserver(updateTrial).observe(chart);
 updateTrial();
+

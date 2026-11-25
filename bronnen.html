@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Modellen per meetopstelling | Verspaningsgids</title>
+  <link rel="stylesheet" href="gids.css">
+</head>
+<body>
+<header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
+  <a class="brand" href="index.html">Verspaningsgids</a>
+  <div>
+    <a href="index.html">Overzicht</a>
+    <a href="bronnen.html" aria-current="page">Modellen per meetopstelling</a>
+  </div>
+</nav></header>
+<main class="wrap">
+<section class="hero"><h1>Modellen per meetopstelling</h1>
+<p class="intro">Lees een rij om te zien wat een extra bron oplevert. Open een cel voor de benodigde signalen of metingen.</p></section>
+<p><strong>Box</strong> = trilling en fasestroom · <strong>CNC</strong> = uitleesbare machinedata · <strong>Operator</strong> = ingevoerde instellingen, registraties of afzonderlijke metingen.</p>
+<div class="source-matrix" role="region" aria-label="Broncombinaties vergelijken" tabindex="0">
+<table><caption>Wat levert elke broncombinatie op? <span class="matrix-key ideal">✓ Groen = voorkeurscombinatie voor dit resultaat</span> <span class="matrix-key">Grijs = vereiste invoer ontbreekt</span></caption>
+<thead><tr><th scope="col">Model</th><th scope="col">Box</th><th scope="col">CNC</th><th scope="col">Operator</th><th scope="col">Box + CNC</th><th scope="col">Box + operator</th><th scope="col">CNC + operator</th><th scope="col">Alle drie</th></tr></thead>
+<tbody>
+<tr>
+  <th scope="row"><a href="ruwheid.html">Ideale ruwheid bij draaien</a></th>
+  <td class="input-missing"><details><summary>Geen Ra<small>Voeding en neusradius ontbreken</small></summary><p>Voeding en neusradius ontbreken.</p></details></td>
+  <td><details><summary>Ideale Ra¹</summary><p>Automatische schatting bij voeding in mm/omw én actuele neusradius via gereedschapsgegevens.</p></details></td>
+  <td><details><summary>Ideale Ra</summary><p>Ideale Ra uit opgegeven voeding en radius. Toets met ruwheidsmeter.</p></details></td>
+  <td><details><summary>Ideale Ra¹</summary><p>Ideale Ra bij CNC-voeding en radius. Trilling voegt dynamische context toe.</p></details></td>
+  <td><details><summary>Ra ijken</summary><p>Voeding en radius manueel invoeren. Gemeten Ra per stuk koppelen aan trilling en voorspelling.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> Ra ijken</summary><p>CNC-voeding koppelen aan snijplaatradius en gemeten Ra om de schatting te ijken.</p></details></td>
+  <td><details><summary>Ra ijken</summary><p>Geometrische schatting, trilling en slijtage koppelen aan echte Ra-metingen. Toets kalibratie op nieuwe stukken.</p></details></td>
+</tr>
+<tr>
+  <th scope="row"><a href="slijtage.html">Gereedschapsslijtage</a></th>
+  <td><details><summary>Belastingstrend</summary><p>Een stijgende stroom of trilling signaleren. Slijtage als oorzaak blijft onzeker.</p></details></td>
+  <td><details><summary>Snijtijd</summary><p>Snijtijd per gereedschap. Voor tijd per snijkant moet ook het wisselmoment bekend zijn.</p></details></td>
+  <td><details><summary>Slijtage meten</summary><p>VB uit gekalibreerde inspectiebeelden opvolgen per snijkant.</p></details></td>
+  <td><details><summary>Trend per snijkant</summary><p>Belastingstrend en effectieve snijtijd per gekende snijkant. Een VB-schatting vereist eerdere kalibratie.</p></details></td>
+  <td><details><summary>Trend + inspectie</summary><p>Trend per snijkant via handmatig gelogde wissels en VB-inspecties.</p></details></td>
+  <td><details><summary>Snijtijd + inspectie</summary><p>Snijtijd uit CNC koppelen aan snijkantwissels en VB-inspecties.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> Slijtage schatten²</summary><p>Snijkant-ID, belastingshistorie en VB-inspecties combineren om een slijtagemodel te toetsen.</p></details></td>
+</tr>
+<tr>
+  <th scope="row"><a href="doorbuiging.html">Doorbuiging</a></th>
+  <td class="input-missing"><details><summary>Geen doorbuiging<small>Kracht en geometrie ontbreken</small></summary><p>Radiale kracht en geometrie ontbreken.</p></details></td>
+  <td><details><summary>Schatting³</summary><p>Schatting alleen bij beschikbare radiale kracht of gevalideerd krachtmodel én uitsteek, geometrie en stijfheid.</p></details></td>
+  <td><details><summary>Handberekening³</summary><p>Doorbuiging berekenen met ingevoerde kracht, uitsteek, geometrie en stijfheid.</p></details></td>
+  <td><details><summary>Schatting³</summary><p>Schatting bij gevalideerde kracht en bekende geometrie/stijfheid. Fasestroom geeft geen radiale kracht.</p></details></td>
+  <td><details><summary>Handberekening³</summary><p>Schatting met ingevoerde geometrie, stijfheid en afzonderlijk gemeten of onderbouwde kracht.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> Schatting³</summary><p>CNC-belasting met gevalideerd krachtmodel combineren met ingevoerde uitsteek en gemeten stijfheid.</p></details></td>
+  <td><details><summary>Schatting toetsen³</summary><p>Met een geschikte krachtbron, geometrie en stijfheid de voorspelling vergelijken met maatinspectie.</p></details></td>
+</tr>
+<tr>
+  <th scope="row"><a href="chatter.html">Chatter</a></th>
+  <td><details><summary>Verdachte pieken</summary><p>Verdachte vibratiepieken zien bij snelle golfvormopname. RMS alleen geeft een niveautrend.</p></details></td>
+  <td><details><summary>Tandpassage bij frezen</summary><p>Toerental en tanden geven de verwachte tandpassage. Voor detectie is ook een snel dynamisch signaal nodig.</p></details></td>
+  <td><details><summary>Snede beoordelen</summary><p>Verdachte snede lokaliseren via geluid en oppervlak. Voor frequentieanalyse is een opname nodig.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> Pieken per toerental</summary><p>Snelle trillingsopname koppelen aan toerental en bij frezen tandenaantal. Toets detectie op gelabelde sneden.</p></details></td>
+  <td><details><summary>Pieken toetsen</summary><p>Snelle opname naast manueel genoteerd toerental, tandenaantal en beoordeeld oppervlak leggen.</p></details></td>
+  <td><details><summary>Snede beoordelen</summary><p>Toerental en operatorwaarneming koppelen. Een spectrum vraagt een snel signaal uit de machine of een aparte opname.</p></details></td>
+  <td><details><summary>Detectie toetsen</summary><p>Snelle trilling en toerental koppelen aan snede en oppervlak. Een stabiliteitscurve vraagt ook modale gegevens.</p></details></td>
+</tr>
+<tr>
+  <th scope="row"><a href="machinebenutting.html">Benutting en OEE</a></th>
+  <td><details><summary>Activiteit schatten</summary><p>Tijd boven een ingeregelde activiteitsdrempel. Ook hulpverbruik kan de drempel overschrijden.</p></details></td>
+  <td><details><summary>Tijd per toestand</summary><p>Tijd per gekende CNC-toestand. Volledige OEE als planning, prestatiereferentie en kwaliteitsgegevens ook gekoppeld zijn.</p></details></td>
+  <td><details><summary>OEE uit logboek</summary><p>OEE achteraf uit dienstlog, stilstand, ideale cyclustijd en aantallen goed/totaal.</p></details></td>
+  <td><details><summary>Snijtijd schatten</summary><p>Automatisch toestandsduren bepalen en snijden schatten per programma. Volledige OEE vraagt ook planning, prestatie en kwaliteit.</p></details></td>
+  <td><details><summary>Activiteit ijken</summary><p>Activiteitsdetectie ijken op operatorlabels. Voor OEE ook planning, cyclustijd en aantallen loggen.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> OEE berekenen</summary><p>OEE uit CNC-tijden, operatorregistratie van planning, ideale cyclustijd en goed/afkeur.</p></details></td>
+  <td><details><summary>OEE toetsen</summary><p>Automatische toestandstijden toetsen aan operatorlabels en aanvullen tot OEE met planning, prestatie en kwaliteit.</p></details></td>
+</tr>
+<tr>
+  <th scope="row"><a href="energie.html">Energie per stuk</a></th>
+  <td><details><summary>kWh schatten⁴</summary><p>Gebruik RMS-stroom, aangenomen netspanning en totale vermogensfactor. Voor kWh per cyclus moet de box ook de cyclusgrenzen herkennen.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> kWh per goed stuk⁴</summary><p>Automatisch als de CNC actief vermogen of een energieteller én het aantal goede stukken over hetzelfde meetvenster levert. Met alleen cyclusgrenzen krijg je kWh per cyclus.</p></details></td>
+  <td><details><summary>Meter aflezen⁴</summary><p>Begin- en eindstand van een afzonderlijke kWh-meter aflezen en delen door goede stukken.</p></details></td>
+  <td><details><summary>kWh per cyclus⁴</summary><p>Automatisch per cyclus zodra de CNC actief vermogen of energie levert. Met alleen boxstroom kun je het verbruik binnen de CNC-cyclusgrenzen schatten met de aannames uit voetnoot 4.</p></details></td>
+  <td><details><summary>Meter aflezen⁴</summary><p>Deel de kWh-schatting uit boxstroom of het verschil tussen afgelezen kWh-standen door het geregistreerde aantal goede stukken.</p></details></td>
+  <td><details><summary>kWh per goed stuk⁴</summary><p>kWh per goed stuk uit CNC-energie of afgelezen energiemeter en bevestigde goede aantallen.</p></details></td>
+  <td><details><summary>kWh per goed stuk⁴</summary><p>Per goed stuk zodra actief vermogen of tellerstanden beschikbaar zijn. Gebruik de kwaliteitsregistratie voor de noemer.</p></details></td>
+</tr>
+<tr>
+  <th scope="row"><a href="machineconditie.html">Machineconditie</a></th>
+  <td><details><summary>Trillingstrend</summary><p>Trillingstrend bij vaste montage. Verschillen in toerental of belasting kunnen de trend verklaren.</p></details></td>
+  <td><details><summary>Machinetrend</summary><p>Spilbelasting of temperatuur volgen indien beschikbaar. Lagertrilling vereist een trillingskanaal.</p></details></td>
+  <td><details><summary>Proefloop meten</summary><p>Periodieke handmetingen van trillingsniveau vergelijken bij dezelfde proefloop.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> Trend per toerental</summary><p>Trilling volgen per toerental en belasting, met waarschuwing bij verandering.</p></details></td>
+  <td><details><summary>Proefloop volgen</summary><p>Trillingsmetingen vergelijken tijdens een door de operator herhaalde proefloop.</p></details></td>
+  <td><details><summary>Trend toetsen</summary><p>Machinetrends per bedrijfstoestand vergelijken met inspectie of onderhoudsbevindingen.</p></details></td>
+  <td><details><summary>Alarm toetsen</summary><p>Toestandsspecifieke trillingsalarmen toetsen aan inspecties en onderhoud.</p></details></td>
+</tr>
+<tr>
+  <th scope="row"><a href="materiaalvariatie.html">Materiaalvariatie</a></th>
+  <td><details><summary>Signaalverandering</summary><p>Veranderd snijgedrag signaleren. Batch en mogelijke oorzaak onbekend.</p></details></td>
+  <td><details><summary>Belasting per snede</summary><p>Vergelijkbare sneden vergelijken op spilbelasting. Voor batchvergelijking moet batch-ID mee geregistreerd zijn.</p></details></td>
+  <td><details><summary>Batches toetsen</summary><p>Batches vergelijken via inspectie, hardheidsproef of certificaat.</p></details></td>
+  <td><details><summary>Trend per snede</summary><p>Belasting en trilling vergelijken per snede. Voor batchverschillen ook batch-ID en gekende snijkanttoestand nodig.</p></details></td>
+  <td><details><summary>Trend per batch</summary><p>Stroom en trilling per gelabelde batch vergelijken bij dezelfde snede. Toets met materiaalinspectie.</p></details></td>
+  <td><details><summary>Belasting per batch</summary><p>CNC-belasting per gelabelde batch onderzoeken, met controle van slijtage en materiaal.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> Batchverschil toetsen</summary><p>Signalen tussen geïdentificeerde batches vergelijken en de oorzaak onderzoeken met materiaalmetingen.</p></details></td>
+</tr>
+<tr>
+  <th scope="row"><a href="afwijkingsdetectie.html">Afwijkende cycli</a></th>
+  <td><details><summary>Patroonafwijking</summary><p>Afwijkingen tegenover een eerder opgenomen referentie markeren. Cyclusgrenzen zijn geschat.</p></details></td>
+  <td><details><summary>Afwijkende stap</summary><p>Programmaduur, voeding of belasting per programmastap vergelijken met eerdere runs.</p></details></td>
+  <td><details><summary>Logboek nakijken</summary><p>Afwijkende stukken of cyclustijden terugvinden in een handmatig logboek.</p></details></td>
+  <td class="ideal"><details><summary><span aria-label="Voorkeur">✓</span> Afwijking per stap</summary><p>Automatisch stroom- en trillingsprofielen vergelijken per programmafase.</p></details></td>
+  <td><details><summary>Afwijking na ijking</summary><p>Referentiecycli laten labelen en volgende sensorvensters ermee vergelijken.</p></details></td>
+  <td><details><summary>Incident toetsen</summary><p>Afwijkende CNC-cycli terugzoeken en toetsen aan incidenten uit het operatorlog.</p></details></td>
+  <td><details><summary>Afwijking toetsen</summary><p>Afwijkingen detecteren per fase en toetsen op bekende incidenten en normale overgangen.</p></details></td>
+</tr>
+</tbody></table></div>
+<section class="reading"><h2>Wanneer lukt dit automatisch?</h2>
+<p>Een CNC-signaal kan per stuk worden uitgelezen als de machine het vrijgeeft. Een vaste instelling kan na eenmalige invoer worden hergebruikt. Een inspectie of tellerstand die iemand voor elke reeks invoert, blijft handwerk.</p>
+<ol>
+<li>Ideale Ra vraagt voeding per omwenteling en de actuele neusradius. Een ruwheidsmeting op het werkstuk laat toe de schatting te ijken.</li>
+<li>Slijtage schatten uit belasting en trilling vraagt kalibratie met gemeten slijtage per snijkant.</li>
+<li>Doorbuiging berekenen vraagt radiale kracht of een getoetst krachtmodel, plus uitsteek, geometrie en stijfheid.</li>
+<li>Energie meten kan met actief vermogen of een kWh-teller. Energie schatten kan bij ongeveer symmetrische driefasenbelasting met RMS-lijnstroom, vaste lijnspanning en een aangenomen totale vermogensfactor. Voor kWh per goed stuk heb je ook het aantal goedgekeurde stukken over hetzelfde meetvenster nodig.</li>
+</ol></section>
+<section class="reading" id="opstellingen">
+<h2>Wat kan gemeten worden met welke opstelling?</h2>
+<p>Het label geldt voor het beschreven resultaat, met de vermelde signalen en metingen. Bovenaan staan de toepassingen waarmee je het snelst een bruikbaar resultaat krijgt. Onderaan staan de modellen die extra gegevens, kalibratie of aparte metingen vragen.</p>
+<h3>1. Box</h3>
+<ul>
+  <li id="box-machineconditie"><span class="model-status direct">Direct bruikbaar</span> <a href="machineconditie.html">Machineconditie</a> — Bij vaste sensormontage kun je veranderingen in trillingsniveau volgen. Vergelijk proeflopen bij dezelfde belasting.</li>
+  <li id="box-machinebenutting"><span class="model-status estimate">Schatting</span> <a href="machinebenutting.html">Benutting en OEE</a> — Uit de stroom schat je hoe lang de machine actief is. Hulpverbruik kan meetellen. Voor OEE ontbreken onder meer productieaantallen.</li>
+  <li id="box-energie"><span class="model-status estimate">Schatting</span> <a href="energie.html">Energie per stuk</a> — Schat kWh uit RMS-stroom, vaste netspanning en een aangenomen vermogensfactor. Voor kWh per stuk moet ook het aantal stukken in het meetvenster bekend zijn.</li>
+  <li id="box-afwijkingsdetectie"><span class="model-status indicator">Alleen indicatie</span> <a href="afwijkingsdetectie.html">Afwijkende cycli</a> — Bij herhalend werk kun je een afwijkend stroom- of trillingspatroon herkennen. De box moet de cyclusgrenzen zelf schatten.</li>
+  <li id="box-chatter"><span class="model-status indicator">Alleen indicatie</span> <a href="chatter.html">Chatter</a> — Een snelle trillingsopname kan verdachte frequentiepieken tonen. Een gemiddeld trillingsniveau volstaat daarvoor niet.</li>
+  <li id="box-slijtage"><span class="model-status indicator">Alleen indicatie</span> <a href="slijtage.html">Gereedschapsslijtage</a> — Bij dezelfde snede kan oplopende stroom op slijtage wijzen. De slijtage van de snijkant blijft onbekend.</li>
+  <li id="box-materiaalvariatie"><span class="model-status indicator">Alleen indicatie</span> <a href="materiaalvariatie.html">Materiaalvariatie</a> — Je kunt een verandering in snijgedrag zien. Zonder batchgegevens kun je die niet aan het materiaal toeschrijven.</li>
+  <li id="box-ruwheid"><span class="model-status missing">Niet mogelijk</span> <a href="ruwheid.html">Ideale ruwheid bij draaien</a> — De box mist voeding per omwenteling en neusradius. Daardoor kun je de ideale Ra niet berekenen.</li>
+  <li id="box-doorbuiging"><span class="model-status missing">Niet mogelijk</span> <a href="doorbuiging.html">Doorbuiging</a> — Trilling en stroom leveren geen radiale kracht of gereedschapsgeometrie. Een doorbuiging in µm is hiermee niet te bepalen.</li>
+</ul>
+<h3>2. Box + machinedata</h3>
+<ul>
+  <li id="box-cnc-machinebenutting"><span class="model-status direct">Direct bruikbaar</span> <a href="machinebenutting.html">Benutting en OEE</a> — Met CNC-toestanden en cyclusgrenzen tel je draai- en stilstandtijd. De stroom helpt snijtijd te schatten. Volledige OEE vraagt ook planning, ideale cyclustijd en goede aantallen.</li>
+  <li id="box-cnc-afwijkingsdetectie"><span class="model-status direct">Direct bruikbaar</span> <a href="afwijkingsdetectie.html">Afwijkende cycli</a> — Gebruik de programmastap als startpunt. Vergelijk stroom en trilling telkens tijdens dezelfde snede.</li>
+  <li id="box-cnc-machineconditie"><span class="model-status direct">Direct bruikbaar</span> <a href="machineconditie.html">Machineconditie</a> — Vergelijk trilling bij hetzelfde toerental en dezelfde belasting. Zo kun je per bedrijfstoestand een alarm instellen.</li>
+  <li id="box-cnc-energie"><span class="model-status direct">Direct bruikbaar</span> <a href="energie.html">Energie per stuk</a> — Levert de CNC actief vermogen of een energieteller, dan bereken je kWh per cyclus. Met een teller voor goede stukken krijg je ook kWh per goed stuk.</li>
+  <li id="box-cnc-ruwheid"><span class="model-status estimate">Schatting</span> <a href="ruwheid.html">Ideale ruwheid bij draaien</a> — Met CNC-voeding in mm/omw en de actuele neusradius bereken je de ideale Ra. De werkelijke Ra vraagt een oppervlaktemeting.</li>
+  <li id="box-cnc-chatter"><span class="model-status indicator">Alleen indicatie</span> <a href="chatter.html">Chatter</a> — Koppel een snelle trillingsopname aan het toerental. Bij frezen helpt het tandenaantal om tandpassage te onderscheiden van een verdachte piek.</li>
+  <li id="box-cnc-slijtage"><span class="model-status indicator">Alleen indicatie</span> <a href="slijtage.html">Gereedschapsslijtage</a> — Volg snijtijd en belasting per gereedschap. Voor een trend per snijkant moet de CNC ook snijkantwissels registreren. Slijtage schatten vraagt kalibratie.</li>
+  <li id="box-cnc-materiaalvariatie"><span class="model-status indicator">Alleen indicatie</span> <a href="materiaalvariatie.html">Materiaalvariatie</a> — Vergelijk belasting en trilling tijdens dezelfde snede. Voor een vergelijking per batch heb je ook batch-ID en de toestand van de snijkant nodig.</li>
+  <li id="box-cnc-doorbuiging"><span class="model-status estimate">Schatting</span> <a href="doorbuiging.html">Doorbuiging</a> — Een schatting vraagt een radiale kracht of een getoetst krachtmodel, plus uitsteek, geometrie en stijfheid. Spilbelasting alleen volstaat niet.</li>
+</ul>
+<h3>3. Box + machinedata + operatorfeedback</h3>
+<ul>
+  <li id="box-cnc-operator-machinebenutting"><span class="model-status direct">Direct bruikbaar</span> <a href="machinebenutting.html">Benutting en OEE</a> — De CNC levert toestandstijden. Met geplande productietijd, ideale cyclustijd en aantallen goed en afgekeurd kan de operator de OEE vervolledigen.</li>
+  <li id="box-cnc-operator-afwijkingsdetectie"><span class="model-status direct">Direct bruikbaar</span> <a href="afwijkingsdetectie.html">Afwijkende cycli</a> — De box signaleert een afwijking per programmastap. De operator geeft aan of het om een incident of een normale overgang ging.</li>
+  <li id="box-cnc-operator-machineconditie"><span class="model-status direct">Direct bruikbaar</span> <a href="machineconditie.html">Machineconditie</a> — Volg trilling bij gelijk toerental en gelijke belasting. Koppel een alarm aan wat de operator bij inspectie aantreft.</li>
+  <li id="box-cnc-operator-energie"><span class="model-status direct">Direct bruikbaar</span> <a href="energie.html">Energie per stuk</a> — Gebruik CNC-energie of laat de operator een kWh-meter aflezen. Deel het verschil in kWh door het bevestigde aantal goede stukken uit dezelfde periode.</li>
+  <li id="box-cnc-operator-ruwheid"><span class="model-status estimate">Schatting</span> <a href="ruwheid.html">Ideale ruwheid bij draaien</a> — Bereken Ra uit voeding en neusradius. Laat de operator enkele gedraaide stukken nameten, bepaal de correctiefactor en toets die op nieuwe stukken.</li>
+  <li id="box-cnc-operator-chatter"><span class="model-status direct">Direct bruikbaar</span> <a href="chatter.html">Chatter</a> — Koppel snelle trillingsopnames aan toerental en snede. Laat de operator verdachte én rustige sneden beoordelen op chattersporen.</li>
+  <li id="box-cnc-operator-slijtage"><span class="model-status estimate">Schatting</span> <a href="slijtage.html">Gereedschapsslijtage</a> — Registreer snijkantwissels en meet de slijtage bij inspectie. Daarmee kun je het verband met belasting en snijtijd ijken en op andere snijkanten toetsen.</li>
+  <li id="box-cnc-operator-materiaalvariatie"><span class="model-status direct">Direct bruikbaar</span> <a href="materiaalvariatie.html">Materiaalvariatie</a> — Laat de operator batch en snijkant registreren. Vergelijk dezelfde snede tussen batches en toets een vermoed materiaalverschil met een materiaalmeting.</li>
+  <li id="box-cnc-operator-doorbuiging"><span class="model-status estimate">Schatting</span> <a href="doorbuiging.html">Doorbuiging</a> — Combineer kracht, uitsteek, geometrie en stijfheid. Toets de voorspelling met een maatmeting. Ook met operatorfeedback blijft een geschikte krachtbron of een getoetst krachtmodel nodig.</li>
+</ul>
+</section>
+</main></body></html>
