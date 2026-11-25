@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatter | Verspaningsgids</title>
+  <link rel="stylesheet" href="gids.css">
+</head>
+<body>
+<header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
+  <a class="brand" href="index.html">Verspaningsgids</a>
+  <div><a href="index.html">Overzicht</a><a href="ruwheid.html">Ruwheid</a><a href="energie.html">Energie</a></div>
+</nav></header>
+<main class="wrap"><section class="hero detail"><p class="eyebrow">Procesbewaking · Chatter</p><h1>Trilt deze snede door chatter?</h1><p class="intro">Twee vragen beantwoorden: welke afwijkende trilling zien we tijdens deze snede, en bij welke combinaties van toerental en snedediepte voorspelt het model stabiliteit?</p></section>
+<section class="reading"><h2>Toepassing bij draaien en frezen</h2>
+<dl class="sources">
+<div><dt>Draaien</dt><dd>Meet trillingen tijdens een stabiele en een verdachte draaisnede. Gebruik het toerental van het werkstuk om de omwentelingsfrequentie te markeren. Een stabiliteitsgrens voor draaien vraagt een model voor de draaibeitel, het werkstuk en hun opspanning.</dd></div>
+<div><dt>Frezen</dt><dd>Gebruik het toerental van de frees en het aantal snijdende tanden. Bij vier tanden en 6.000 omw/min ligt de tandpassage op 400 Hz. De grensdiepte en stabiliteitscurve hieronder horen bij deze freesaanpak.</dd></div>
+</dl></section>
+<section class="reading"><h2>Welke gegevens heb je nodig?</h2><dl class="sources"><div><dt>Meten tijdens de snede</dt><dd>Gekalibreerde accelerometer met snelle golfvormopname dicht bij spil of opspanning, inclusief as, bandbreedte en samplefrequentie. Toerental uit CNC of tachometer, tandenaantal uit gereedschapsfiche. Leid RMS en dominante frequentie in Hz af uit hetzelfde venster. Tandpassagefrequentie = toerental × tanden / 60. Spectrum met tandpassage en harmonischen gemarkeerd. Leg de verdachte snede naast een bekende stabiele snede. Een traag gelogde RMS-reeks kan activiteit tonen, maar bevat onvoldoende informatie voor dit spectrum.</dd></div><div><dt>Stabiliteit voorspellen</dt><dd>Axiale/radiale ingreep en diameter uit CAM of instelling, snijkrachtcoëfficiënten uit materiaal-/toolproef. Voor de dynamische respons: eigenfrequentie, demping en stijfheid uit gekarakteriseerde opstelling, bijvoorbeeld via impacthamer en accelerometer. Diagram met toerental horizontaal, grenssnedediepte verticaal en één werkpunt. Toon de verhouding ingestelde diepte/grensdiepte. Vermeld op welke houder, uitsteek en opspanning de curve berust.</dd></div></dl></section>
+<section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Eigen opnames laten zien welke frequenties bij een normale snede horen. Bij 6.000 omw/min en vier tanden is de tandpassagefrequentie <strong>400 Hz</strong>. Stel dat een verdachte snede ook een piek rond 730 Hz vertoont. Die piek geeft je een gericht aanknopingspunt om het trillingsbeeld en het oppervlak te vergelijken.</p></section>
+<section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Registreer een gekende stabiele snede met een vast gemonteerde accelerometer. Bewaar toerental, tandenaantal, ingreep, samplefrequentie en het tijdvenster.</li><li>Vergelijk met een bestaande verdachte opname onder vergelijkbare condities. Markeer tandpassage en harmonischen. Laat het oppervlak onafhankelijk beoordelen en leg het oordeel naast het spectrum.</li><li>Leg de detectieregel vast en test op afzonderlijke gelabelde sneden. Tel gemiste chatter en valse meldingen. Beoordeel een voorspelde stabiliteitsgrens apart met proefpunten waarvan toerental, diepte en waargenomen stabiliteit bekend zijn.</li></ol></section>
+<p><a href="index.html">Terug naar alle modellen</a></p></main>
+<footer class="wrap">COOCK+ · VIVES en Sirris</footer>
+</body>
+</html>

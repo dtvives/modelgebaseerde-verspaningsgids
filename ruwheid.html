@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruwheid bij draaien | Verspaningsgids</title>
+  <link rel="stylesheet" href="gids.css">
+</head>
+<body>
+<header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
+  <a class="brand" href="index.html">Verspaningsgids</a>
+  <div><a href="index.html">Overzicht</a><a href="ruwheid.html" aria-current="page">Ruwheid</a><a href="energie.html">Energie</a></div>
+</nav></header>
+<main class="wrap">
+  <section class="hero detail">
+    <p class="eyebrow">Oppervlaktekwaliteit · Draaien</p>
+    <h1>Hoe glad kan ik draaien?</h1>
+    <p class="intro">Schat de ideale oppervlakteruwheid Ra uit de voeding en de neusradius van de snijplaat. Gebruik de uitkomst om twee instellingen te vergelijken.</p>
+  </section>
+<section class="reading"><h2>Toepassing bij draaien en frezen</h2>
+<dl class="sources">
+<div><dt>Draaien</dt><dd>Gebruik de voeding per werkstukomwenteling (mm/omw) en de neusradius van de draaiplaat. Vergelijk de schatting met gemeten Ra op het gedraaide oppervlak.</dd></div>
+<div><dt>Frezen</dt><dd>Voor een gefreesd oppervlak kies je eerst het oppervlak (wand of bodem) en de freesgeometrie. Een passende voedingsspoorbenadering gebruikt voeding per tand en hoekradius. De calculator hieronder geldt voor draaien.</dd></div>
+</dl></section>
+  <section class="lab" aria-labelledby="example">
+    <div class="lab-controls">
+      <h2 id="example">Probeer het met twee waarden</h2>
+      <form id="ra">
+        <label for="feed">Voeding per omwenteling <span>mm/omw</span></label>
+        <input id="feed" type="text" inputmode="decimal" value="0,20" autocomplete="off">
+        <label for="radius">Neusradius <span>mm</span></label>
+        <input id="radius" type="text" inputmode="decimal" value="0,80" autocomplete="off">
+      </form>
+      <div class="result"><span>Ideale Ra · berekend</span><output for="feed radius" id="value" role="status">1,56 µm</output></div>
+      <p id="feedback" class="caption">Beide waarden moeten groter zijn dan nul.</p>
+    </div>
+    <figure>
+      <canvas id="chart" role="img" aria-label="Schematisch profiel met voedingssporen"></canvas>
+      <figcaption>Schematische doorsnede. De hoogte is uitvergroot. Verdubbel de voeding bij dezelfde radius en de ideale Ra wordt vier keer zo groot.</figcaption>
+    </figure>
+  </section>
+  <section class="reading">
+    <h2>Wat voegt meten op je eigen machine toe?</h2>
+    <p>Stel dat je draait met een voeding van 0,20 mm/omw en een neusradius van 0,80 mm. De ideale Ra is dan <strong>1,56 µm berekend</strong>. Op vergelijkbare proefstukken vind je gemiddeld <strong>2,00 µm gemeten</strong>.</p>
+    <p>In dit vaste voorbeeld ligt de gemeten ruwheid ongeveer 28% hoger. De verhouding 2,00 / 1,56 ≈ <strong>1,28</strong> geeft een eerste correctiefactor voor deze opstelling. Materiaal, machine, gereedschap en opspanning kunnen allemaal bijdragen aan het verschil.</p>
+    <details><summary>Welke factor stelt het Sirris-model bij?</summary>
+      <p>Het model vermenigvuldigt de geometrische Ra met factoren voor materiaal, slijtage en trilling. Na een ruwheidsmeting deelt het de gemeten Ra door de geometrische Ra én door de twee factoren voor slijtage en trilling. Het stelt de materiaalfactor geleidelijk bij richting die uitkomst.</p>
+      <p>Als de slijtage- en trillingsfactor beide 1 zijn, is 1,28 in dit voorbeeld de doelwaarde voor de materiaalfactor. De software bewaart die per materiaal. Noteer daarom bij welke machine en opstelling ze werd bepaald.</p>
+    </details>
+  </section>
+  <section class="reading">
+    <h2>Hoe aanpakken in de praktijk?</h2>
+    <ol>
+      <li><strong>Kies één bewerking.</strong> Noteer de gewenste Ra, machine, materiaal, opspanning, snijplaat en neusradius.</li>
+      <li><strong>Maak een proefreeks.</strong> Varieer de voeding binnen het afgesproken werkbereik. Herhaal dezelfde instelling enkele keren om de spreiding te zien. Noteer per stuk de voeding en de berekende Ra.</li>
+      <li><strong>Meet de afwerking.</strong> Meet met een ruwheidsmeter op hetzelfde vlak en in dezelfde richting. Koppel de waarde aan het stuk-ID. Noteer ook slijtage en eventuele trillingsmetingen.</li>
+      <li><strong>Bepaal de correctie.</strong> Bereken per proefstuk de verhouding tussen gemeten en berekende Ra. Liggen de verhoudingen dicht bij elkaar, dan kun je hun gemiddelde als eerste gezamenlijke factor gebruiken. Bij grote spreiding onderzoek je eerst de verschillen tussen de proeven.</li>
+      <li><strong>Toets op nieuwe stukken.</strong> Houd de factor vast. Noteer per nieuw stuk de geometrische voorspelling en de voorspelling mét correctie. Meet daarna de Ra. Vergelijk voor beide voorspellingen de gemiddelde absolute afwijking in µm. De kleinste afwijking laat zien welke aanpak op deze reeks beter voorspelt.</li>
+    </ol>
+  </section>
+  <section class="reading">
+    <h2>Waar haal je de invoer?</h2>
+    <dl class="sources">
+      <div><dt>Voeding per omwenteling <span>CNC of instelblad</span></dt><dd>Lees de voeding uit de CNC als de voedingsmodus en eenheid bekend zijn. Je kunt ze ook overnemen van het programma of instelblad. Controleer welke voeding tijdens de snede gold.</dd></div>
+      <div><dt>Neusradius <span>Gereedschapsfiche</span></dt><dd>Neem de radius van de gemonteerde snijplaat uit de fiche of gereedschapsdatabase. Beide invoerwaarden komen uit de bewerkingsinstellingen. Voor de berekening is dus geen extra sensor nodig.</dd></div>
+      <div><dt>Werkelijke Ra <span>Aparte meting</span></dt><dd>Meet met een ruwheidsmeter op het bewerkte oppervlak. Noteer stuk, meetrichting en instellingen. Vergelijk die waarde met de schatting voor dezelfde snede.</dd></div>
+    </dl>
+    <details><summary>Formule en toepassingsgrenzen</summary>
+      <p><strong>Ra (µm) = 1000 × f² / (32 × r)</strong>, met f in mm/omw en r in mm.</p>
+      <p>Deze geometrische benadering geldt voor draaien met een geschikte, afgeronde snijkant. Slijtage, trilling en materiaal kunnen het gemeten oppervlak beïnvloeden. Gebruik een proefstuk en ruwheidsmeting om te beoordelen of een instelling de gevraagde afwerking haalt.</p>
+    </details>
+  </section>
+</main>
+<script src="gids.js"></script>
+<footer class="wrap">COOCK+ · VIVES en Sirris</footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Energie per stuk | Verspaningsgids</title>
+  <link rel="stylesheet" href="gids.css">
+</head>
+<body>
+<header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
+  <a class="brand" href="index.html">Verspaningsgids</a>
+  <div><a href="index.html">Overzicht</a><a href="ruwheid.html">Ruwheid</a><a href="energie.html" aria-current="page">Energie</a></div>
+</nav></header>
+<main class="wrap">
+  <section class="hero detail">
+    <p class="eyebrow">Energie · Productie</p>
+    <h1>Hoeveel energie kost een goed stuk?</h1>
+    <p class="intro">Baken een meetvenster af. Deel het elektriciteitsverbruik binnen dat venster door het aantal goede stukken dat in dezelfde periode is geproduceerd.</p>
+  </section>
+<section class="reading"><h2>Toepassing bij draaien en frezen</h2>
+<dl class="sources">
+<div><dt>Draaien</dt><dd>Meet bijvoorbeeld van cyclusstart tot gereedmelding voor een serie gedraaide assen. Neem laden en wachten telkens op dezelfde manier mee. Deel de kWh door de goedgekeurde assen.</dd></div>
+<div><dt>Frezen</dt><dd>Gebruik dezelfde berekening voor gefreesde stukken. Bij meerdere stukken per opspanning tel je de goede stukken in de volledige cyclus. Leg vast of gereedschapswissels en palletwissels binnen het venster vallen.</dd></div>
+</dl></section>
+  <section class="lab" aria-labelledby="example">
+    <div class="lab-controls">
+      <h2 id="example">Reken een meetvenster door</h2>
+      <form id="energy">
+        <label for="power">Gemiddeld actief vermogen <span>kW</span></label>
+        <input id="power" type="text" inputmode="decimal" value="2" autocomplete="off">
+        <label for="time">Duur van het meetvenster <span>min</span></label>
+        <input id="time" type="text" inputmode="decimal" value="3" autocomplete="off">
+        <label for="parts">Aantal goede stukken</label>
+        <input id="parts" type="text" inputmode="numeric" value="1" autocomplete="off">
+      </form>
+      <div class="result"><span>Energie per goed stuk · berekend</span><output for="power time parts" id="value" role="status">0,10 kWh</output></div>
+      <p id="feedback" class="caption">In dit venster wordt in totaal 0,10 kWh verbruikt.</p>
+    </div>
+    <figure>
+      <canvas id="chart" role="img" aria-label="Oppervlakte onder het gemiddelde vermogen in het meetvenster"></canvas>
+      <figcaption>De gekleurde oppervlakte stelt het energieverbruik voor. De horizontale lijn geeft het gemiddelde vermogen in dit tijdvak weer.</figcaption>
+    </figure>
+  </section>
+<section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een echte energiemeting neemt ook wachten, pompen en hulpverbruik mee voor zover ze binnen het meetpunt vallen. Stel dat de teller tijdens een order met <strong>1,20 kWh</strong> stijgt en negen van tien stukken goed zijn. Dan is het verbruik <strong>0,133 kWh per goed stuk</strong>. Wie alle geproduceerde stukken telt, beantwoordt een andere vraag en komt op 0,120 kWh.</p></section>
+<section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Kies het meetpunt en de ordergrenzen. Noteer begin- en eindtijd, meterstanden en het aantal goedgekeurde stukken.</li><li>Bereken het verschil in kWh per goed stuk. Als je actief vermogen logt, integreer dan over dezelfde tijdstippen en controleer op ontbrekende intervallen.</li><li>Vergelijk op een volgende order de geïntegreerde kWh met het verschil op een onafhankelijke referentiemeter aan dezelfde systeemgrens. Controleer de noemer tegen de kwaliteitsregistratie. Vergelijk procesinstellingen pas over orders met vergelijkbare inhoud en bezetting.</li></ol></section>
+  <section class="reading">
+    <h2>Wat heb je nodig op de machine?</h2>
+    <dl class="sources">
+      <div><dt>Energie of actief vermogen <span>Elektrische meting</span></dt><dd>Lees de begin- en eindstand in kWh af van een energiemeter, of log actief vermogen met een geschikte vermogensmeter. Op een driefasenmachine gebruik je een gevalideerde driefasenmeting. Fasestroom in A alleen volstaat niet om kWh te bepalen.</dd></div>
+      <div><dt>Begin en einde <span>CNC of operator</span></dt><dd>Gebruik tijdstippen uit het programma of laat de operator ze noteren. Spreek af of opwarmen, wachten en hulpverbruik in de meting zitten. Hanteer bij elke vergelijking dezelfde meetgrens.</dd></div>
+      <div><dt>Goedgekeurde stukken <span>Kwaliteitsregistratie</span></dt><dd>Gebruik goedgekeurde aantallen uit de registratie of laat de operator ze tellen. Een gewone CNC-stukteller telt mogelijk ook afkeur. Het verbruik van die afkeur zit wel in je meetvenster.</dd></div>
+    </dl>
+    <details><summary>Formule en controlemeting</summary>
+      <p><strong>kWh per goed stuk = energie in het meetvenster / aantal goede stukken.</strong> Bij gemiddeld vermogen in kW is de energie gelijk aan vermogen × minuten / 60. Bij wisselend vermogen tel je de energie per tijdstap op of gebruik je het verschil tussen twee meterstanden.</p>
+      <p>Vergelijk de uitkomst met het verschil op de energiemeter over hetzelfde venster. Bij nul goede stukken blijft het totale verbruik bruikbaar en is de waarde per goed stuk onbepaald.</p>
+    </details>
+  </section>
+</main>
+<script src="gids.js"></script>
+<footer class="wrap">COOCK+ · VIVES en Sirris</footer>
+</body>
+</html>

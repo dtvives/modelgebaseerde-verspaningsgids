@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Machinebenutting en OEE | Verspaningsgids</title>
+  <link rel="stylesheet" href="gids.css">
+</head>
+<body>
+<header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
+  <a class="brand" href="index.html">Verspaningsgids</a>
+  <div><a href="index.html">Overzicht</a><a href="ruwheid.html">Ruwheid</a><a href="energie.html">Energie</a></div>
+</nav></header>
+<main class="wrap"><section class="hero detail"><p class="eyebrow">Productie · Machinebenutting en OEE</p><h1>Waar gaat productietijd verloren?</h1><p class="intro">Zicht krijgen op geplande tijd, draaiende spil, werkelijke snijtijd en productkwaliteit. Begin met een tijdlijn. Voeg percentages pas toe wanneer teller en noemer bekend zijn.</p></section>
+<section class="reading"><h2>Toepassing bij draaien en frezen</h2>
+<dl class="sources">
+<div><dt>Draaien</dt><dd>Label bijvoorbeeld laden, spil aan, draaien in snede en wachten. Controleer met de operator welke programmafasen werkelijk materiaal afnemen.</dd></div>
+<div><dt>Frezen</dt><dd>Onderscheid snijden, ijlgang, gereedschapswissel en palletwissel. De spil kan ook tussen twee sneden draaien. Gebruik bij meerdere stukken per opspanning het werkelijke stukaantal.</dd></div>
+</dl></section>
+<section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Automatisch uit de CNC: cyclus, spiltoerental, programma, werkelijke voeding en tijdstempels. Voor detectie van snijden gebruikt het Python-model toerental en vermogen ten opzichte van nullast. Een stroomtang of trillingssensor kan met bedrijfslabels een activiteitsproxy leveren. Planning, nominale voeding of ideale cyclustijd komen uit werkvoorbereiding. Goede, afgekeurde en eventueel herwerkte stukken komen uit de kwaliteitsregistratie of van de operator.</p></section>
+<section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een operator kan een stroom- of trillingsplateau herkennen als bijvoorbeeld werken, spoelen of wachten. Stel dat de detectie in een uur 48 minuten als snijden telt. Uit het programmalog blijkt dat zes van die minuten spoelen waren. Als de overige intervallen juist zijn, daalt het geschatte aandeel snijtijd van 80% naar <strong>70%</strong>.</p></section>
+<section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Spreek af welke tijden meetellen. Kies een dienst en registreer geplande tijd, CNC-toestand, programma en operatorlabels op dezelfde klok.</li><li>Vergelijk de automatisch herkende toestanden per interval met die labels. Pas regels aan op een eerste dienst. Leg voor volledige OEE ook de prestatieformule, de aantallen goed/afkeur en hun herkomst vast.</li><li>Gebruik een andere dienst als toets. Vergelijk minuten per toestand, controleer de stukaantallen met de kwaliteitsregistratie en herbereken elke OEE-component. Rapporteer onbekende tijd of ontbrekende kwaliteitsgegevens apart.</li></ol></section>
+<p><a href="index.html">Terug naar alle modellen</a></p></main>
+<footer class="wrap">COOCK+ · VIVES en Sirris</footer>
+</body>
+</html>

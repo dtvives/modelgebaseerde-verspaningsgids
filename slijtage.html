@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gereedschapsslijtage | Verspaningsgids</title>
+  <link rel="stylesheet" href="gids.css">
+</head>
+<body>
+<header class="top"><nav class="wrap" aria-label="Hoofdnavigatie">
+  <a class="brand" href="index.html">Verspaningsgids</a>
+  <div><a href="index.html">Overzicht</a><a href="ruwheid.html">Ruwheid</a><a href="energie.html">Energie</a></div>
+</nav></header>
+<main class="wrap"><section class="hero detail"><p class="eyebrow">Kwaliteit · Gereedschapsslijtage</p><h1>Hoe ver is deze snijkant versleten?</h1><p class="intro">Een inspectie of wissel plannen. Toon slijtage van de huidige snijkant in mm, verwachte totale standtijd in minuten en resterende tijd als drie afzonderlijke uitkomsten.</p></section>
+<section class="reading"><h2>Toepassing bij draaien en frezen</h2>
+<dl class="sources">
+<div><dt>Draaien</dt><dd>Volg één snijkant van de draaiplaat. Registreer voeding in mm/omw, werkstukdiameter, snijsnelheid en effectieve snijtijd. Meet de flank bij elke inspectie op dezelfde plaats.</dd></div>
+<div><dt>Frezen</dt><dd>Identificeer de tanden of wisselplaten afzonderlijk. Registreer voeding in mm/tand en axiale en radiale ingreep. Leg vooraf vast of de meest versleten tand het wisselmoment bepaalt. Kalibreer de standtijdcoëfficiënten per bewerking.</dd></div>
+</dl></section>
+<section class="reading"><h2>Welke gegevens heb je nodig?</h2><dl class="sources"><div><dt>Slijtage-index uit kracht</dt><dd>Actief vermogen tijdens snijden en een vergelijkbare nullastmeting in W uit vermogensmeter of gevalideerde CNC-vermogenswaarde. Snijsnelheid uit toerental en diameter. Bereken tangentiële kracht. Vergelijk met een scherpe snijkant via referentieproef of Kienzle-referentie Fc₀ = kc1 × b × h^(1−mc) met spaanbreedte en -dikte in mm en materiaalcoëfficiënten. Een dynamometer kan de kracht onafhankelijk toetsen.</dd></div><div><dt>Indirecte VB en slijtageverloop</dt><dd>Zet krachtverhouding SI_P = Fc/Fc₀ met gekalibreerde slijtagecoëfficiënten om naar VB. De Usui-route schat slijtagegroei uit contactspanning, glijsnelheid, snijtemperatuur en materiaalparameters A/B. Temperatuur en spanning kunnen modelschattingen zijn. Het Kalmanfilter combineert de voorspelling per tijdstap met beschikbare slijtage-informatie en ingestelde ruisvarianties.</dd></div><div><dt>Taylor-standtijd en resterende tijd</dt><dd>Snijsnelheid, voeding, snedediepte en passende C/n/m/p uit standtijdproeven voor dezelfde combinatie. Registreer snijkant-ID, start, effectieve snijtijd, wisselreden en afgesproken VB-grens. De Python-route kan resterende tijd uit het geschatte verbruikte deel van de toegelaten VB afleiden.</dd></div></dl></section>
+<section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een foto met gekende schaal koppelt de voorspelde flankslijtage (VB) aan de toestand van een echte snijkant. Stel dat het model na 40 minuten snijtijd 0,12 mm voorspelt en je 0,18 mm meet. De onderschatting is 0,06 mm op dat tijdstip. Herhaalde inspecties tonen of die afwijking groeit met de snijtijd.</p></section>
+<section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Volg enkele snijkanten bij dezelfde bewerking. Geef elke snijkant een ID en registreer effectieve snijtijd, snijcondities en wisselreden.</li><li>Meet VB op vaste momenten met dezelfde vergroting, schaal en meetdefinitie. Koppel de inspecties aan de voorspellingen. Gebruik een eerste groep snijkanten om de slijtageparameters af te stemmen.</li><li>Toets op nieuwe snijkanten over hun volledige gebruiksduur. Vergelijk de gemiddelde absolute VB-fout vóór en na afstemming. Voor standtijd vergelijk je ook het voorspelde grensmoment met het interval tussen de laatste inspectie onder en de eerste boven de afgesproken grens.</li></ol></section>
+<p><a href="index.html">Terug naar alle modellen</a></p></main>
+<footer class="wrap">COOCK+ · VIVES en Sirris</footer>
+</body>
+</html>
