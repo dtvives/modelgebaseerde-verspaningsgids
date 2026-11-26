@@ -6,6 +6,8 @@ const fields = [...form.elements];
 const chart = lab.querySelector("canvas");
 const fmt = n => n.toLocaleString("nl-BE", { maximumFractionDigits: 2 });
 const samples = values => values.map((v, i) => [String(i + 1), v]);
+const spectrumLimit = 1000;
+const spectrumPeaks = [[400, 1], [730, 0.7], [800, 0.45]];
 
 // Each trial supplies labelled observations, a unit and an interpretation.
 const trials = {
@@ -18,14 +20,20 @@ const trials = {
   machinebenutting(state) {
     const cutting = state === "Snijden" ? 48 : 42;
     return [[["Snijden", cutting], ["Spoelen", 48 - cutting], ["Stilstand", 12]], "min",
-      fmt(cutting / 60 * 100) + "% snijtijd in dit uur.",
-      "Tijdlijn: eerst 42 minuten snijden, daarna 6 minuten " + state.toLowerCase() + ", tot slot 12 minuten stilstand. Voor volledige OEE ontbreken onder meer kwaliteitsgegevens."];
+      fmt(cutting / 60 * 100) + "% snijtijd (" + cutting + " van 60 min).",
+      "Tijdlijn: eerst 42 minuten snijden, daarna 6 minuten " + state.toLowerCase() + ", tot slot 12 minuten stilstand."];
   },
   chatter(rpm, teeth) {
     const frequency = rpm * teeth / 60;
-    return [[[400, 1], [730, 0.7], [800, 0.45]], "relatieve amplitude",
-      "Tandpassage: " + fmt(frequency) + " Hz.",
-      "Fictieve pieken op 400, 730 en 800 Hz. De stippellijnen markeren de eerste drie tandharmonischen binnen 0–1000 Hz.", frequency];
+    const peaks = spectrumPeaks.map(([hz]) => {
+      const order = hz / frequency;
+      const harmonic = Math.round(order);
+      const matches = harmonic > 0 && Math.abs(order - harmonic) < 1e-9;
+      return hz + " Hz (" + (matches ? fmt(harmonic) + "e harmonische" : "geen veelvoud") + ")";
+    });
+    return [spectrumPeaks, "relatieve amplitude",
+      "Tandpassage: " + fmt(frequency) + " Hz. Fictief spectrum: " + peaks.join(", ") + ".",
+      "", frequency];
   },
   slijtage(time, measured) {
     const points = [["20 min", 0.06], ["40 min", 0.12], ["60 min", 0.19]];
@@ -38,7 +46,7 @@ const trials = {
   afwijkingsdetectie(cycle, limit) {
     const values = cycle === "A" ? [2, 2.1, 1.9, 2, 2.1] : [2, 2.1, 2.4, 2.1, 2];
     const hits = values.filter(v => Math.abs(v - 2) / 0.1 > limit + 1e-9).length;
-    return [samples(values), "kW", hits + " van 5 samples buiten de meldgrens.",
+    return [samples(values), "kW", "Cyclus " + cycle + ": " + hits + " van " + values.length + " meetpunten buiten de meldgrens.",
       "Vergelijk dezelfde programmafase. De melding is aanleiding om het tijdvak terug te kijken."];
   },
   machineconditie(series) {
@@ -67,6 +75,7 @@ function updateTrial() {
   ctx.scale(scale, scale);
   if (!form.checkValidity()) {
     result.value = "Controleer de invoer.";
+    chart.setAttribute("aria-label", "Grafiek niet beschikbaar bij ongeldige invoer");
     caption.textContent = fields.filter(f => !f.validity.valid)
       .map(f => f.labels[0].textContent + ": " + f.min + " tot " + f.max).join(". ");
     return;
@@ -75,28 +84,36 @@ function updateTrial() {
   const [rows, unit, answer, note, frequency] = trials[lab.dataset.model](...args);
   result.value = answer;
   caption.textContent = note;
-  chart.setAttribute("aria-label", rows.map(([label, v]) => label + ": " + fmt(v) + " " + unit).join(", "));
+  const chartValues = rows.map(([label, v]) => label + ": " + fmt(v) + " " + unit).join(", ");
+  chart.setAttribute("aria-label", frequency === undefined ? chartValues : answer + " " + chartValues);
   const width = rect.width;
   ctx.font = "13px system-ui";
   ctx.fillStyle = "#29473b";
   ctx.fillText(unit, 5, 16);
   if (frequency !== undefined) {
-    const x = hz => 10 + hz / 1000 * (width - 54);
+    const x = hz => 10 + hz / spectrumLimit * (width - 54);
     for (const [hz, amplitude] of rows) {
       ctx.fillStyle = "#195b48";
       ctx.fillRect(x(hz), 145 - 95 * amplitude, 4, 95 * amplitude);
       ctx.fillText(hz + " Hz", x(hz) - 12, 138 - 95 * amplitude);
     }
-    ctx.strokeStyle = "#875324";
-    ctx.setLineDash([4, 4]);
-    for (let k = 1; k <= 3 && k * frequency <= 1000; k++) {
-      ctx.beginPath();
-      ctx.moveTo(x(k * frequency), 22);
-      ctx.lineTo(x(k * frequency), 148);
-      ctx.stroke();
+    if (frequency > spectrumLimit) {
+      caption.textContent = "Fictief spectrum. De tandpassage ligt boven het getoonde frequentiebereik.";
+    } else if (x(frequency) - x(0) < 4) {
+      caption.textContent = "Fictief spectrum. De harmonischen liggen te dicht bij elkaar om de stippellijnen afzonderlijk te tonen.";
+    } else {
+      caption.textContent = "Fictief spectrum. Stippellijnen markeren de veelvouden van de tandpassage.";
+      ctx.strokeStyle = "#875324";
+      ctx.setLineDash([4, 4]);
+      for (let k = 1; k * frequency <= spectrumLimit + 1e-9; k++) {
+        ctx.beginPath();
+        ctx.moveTo(x(k * frequency), 22);
+        ctx.lineTo(x(k * frequency), 148);
+        ctx.stroke();
+      }
     }
     ctx.fillText("0 Hz", 5, 170);
-    ctx.fillText("1000 Hz", width - 53, 170);
+    ctx.fillText(spectrumLimit + " Hz", width - 53, 170);
     return;
   }
   const peak = Math.max(...rows.map(row => row[1]), 0.001);

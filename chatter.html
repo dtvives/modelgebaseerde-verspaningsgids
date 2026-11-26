@@ -21,12 +21,13 @@
 <div><dt>Frezen</dt><dd>Gebruik het toerental van de frees en het aantal snijdende tanden. Bij vier tanden en 6.000 omw/min ligt de tandpassage op 400 Hz. De grensdiepte en stabiliteitscurve hieronder horen bij deze freesaanpak.</dd></div>
 </dl></section>
 <section class="lab" data-model="chatter" aria-label="Zoek de tandpassage in het spectrum">
-  <div class="lab-controls"><h2>Zoek de tandpassage in het spectrum</h2><p>Het fictieve spectrum blijft vast. Verander de veronderstelde instellingen en vergelijk de verwachte harmonischen met de pieken. Een afwijkende piek vraagt een controle op de machine.</p>
+  <div class="lab-controls"><h2>Zoek de tandpassage in het spectrum</h2><p>De fictieve pieken blijven op dezelfde frequenties staan. Verander de instellingen en kijk welke pieken op een veelvoud van de tandpassage vallen.</p>
     <form><label for="v0">Toerental (omw/min)</label>
 <input type="number" id="v0" value="6000" min="1" max="60000" step="any" required>
 <label for="v1">Aantal snijdende tanden</label>
 <input type="number" id="v1" value="4" min="1" max="32" step="1" required></form>
     <output class="trial-result" aria-live="polite"></output>
+    <p class="caption">De fictieve piek op 730 Hz geeft geen diagnose van je machine. Vergelijk daarvoor eigen trillingsopnames van een rustige en een verdachte snede en controleer het bewerkte oppervlak.</p>
   </div>
   <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
 </section>
@@ -34,12 +35,12 @@
 <section class="reading"><h2>Welke gegevens heb je nodig?</h2><dl class="sources"><div><dt>Meten tijdens de snede</dt><dd>Gekalibreerde accelerometer met snelle golfvormopname dicht bij spil of opspanning, inclusief as, bandbreedte en samplefrequentie. Toerental uit CNC of tachometer, tandenaantal uit gereedschapsfiche. Leid RMS en dominante frequentie in Hz af uit hetzelfde venster. Tandpassagefrequentie = toerental × tanden / 60. Spectrum met tandpassage en harmonischen gemarkeerd. Leg de verdachte snede naast een bekende stabiele snede. Een traag gelogde RMS-reeks kan activiteit tonen, maar bevat onvoldoende informatie voor dit spectrum.</dd></div><div><dt>Stabiliteit voorspellen</dt><dd>Axiale/radiale ingreep en diameter uit CAM of instelling, snijkrachtcoëfficiënten uit materiaal-/toolproef. Voor de dynamische respons: eigenfrequentie, demping en stijfheid uit gekarakteriseerde opstelling, bijvoorbeeld via impacthamer en accelerometer. Diagram met toerental horizontaal, grenssnedediepte verticaal en één werkpunt. Toon de verhouding ingestelde diepte/grensdiepte. Vermeld op welke houder, uitsteek en opspanning de curve berust.</dd></div></dl>
     <h3>Wat kan jouw meetopstelling?</h3>
     <dl class="sources">
-      <div><dt>Sensorbox <a class="model-status indicator" href="bronnen.html#box-chatter">Alleen indicatie</a></dt><dd>Een snelle trillingsopname kan verdachte frequentiepieken tonen. Een gemiddeld trillingsniveau volstaat daarvoor niet.</dd></div>
-      <div><dt>Sensorbox + machinedata <a class="model-status indicator" href="bronnen.html#box-cnc-chatter">Alleen indicatie</a></dt><dd>Koppel een snelle trillingsopname aan het toerental. Bij frezen helpt het tandenaantal om tandpassage te onderscheiden van een verdachte piek.</dd></div>
-      <div><dt>Sensorbox + machinedata + operatorfeedback <a class="model-status direct" href="bronnen.html#box-cnc-operator-chatter">Direct bruikbaar</a></dt><dd>Koppel snelle trillingsopnames aan toerental en snede. Laat de operator verdachte én rustige sneden beoordelen op chattersporen.</dd></div>
+      <div><dt>Sensorbox <span class="model-status indicator">Alleen indicatie</span></dt><dd>Een snelle trillingsopname kan verdachte frequentiepieken tonen. Een gemiddeld trillingsniveau volstaat daarvoor niet. <a href="bronnen.html#box-chatter" aria-label="Bekijk deze meetopstelling: Sensorbox">Bekijk deze meetopstelling</a></dd></div>
+      <div><dt>Sensorbox + machinedata <span class="model-status indicator">Alleen indicatie</span></dt><dd>Koppel een snelle trillingsopname aan het toerental. Bij frezen helpt het tandenaantal om tandpassage te onderscheiden van een verdachte piek. <a href="bronnen.html#box-cnc-chatter" aria-label="Bekijk deze meetopstelling: Sensorbox + machinedata">Bekijk deze meetopstelling</a></dd></div>
+      <div><dt>Sensorbox + machinedata + operatorfeedback <span class="model-status direct">Direct bruikbaar</span></dt><dd>Koppel snelle trillingsopnames aan toerental en snede. Laat de operator verdachte én rustige sneden beoordelen op chattersporen. <a href="bronnen.html#box-cnc-operator-chatter" aria-label="Bekijk deze meetopstelling: Sensorbox + machinedata + operatorfeedback">Bekijk deze meetopstelling</a></dd></div>
     </dl>
   </section>
-<section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Eigen opnames laten zien welke frequenties bij een normale snede horen. Bij 6.000 omw/min en vier tanden is de tandpassagefrequentie <strong>400 Hz</strong>. Stel dat een verdachte snede ook een piek rond 730 Hz vertoont. Die piek geeft je een gericht aanknopingspunt om het trillingsbeeld en het oppervlak te vergelijken.</p></section>
+<section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Eigen opnames laten zien welke frequenties bij een normale snede horen. Markeer de tandpassage en haar harmonischen op beide opnames. Vergelijk vervolgens eventuele extra pieken met zichtbare sporen op het oppervlak van de bijbehorende snede.</p></section>
 <section class="reading"><h2>Hoe aanpakken in de praktijk?</h2><ol><li>Registreer een gekende stabiele snede met een vast gemonteerde accelerometer. Bewaar toerental, tandenaantal, ingreep, samplefrequentie en het tijdvenster.</li><li>Vergelijk met een bestaande verdachte opname onder vergelijkbare condities. Markeer tandpassage en harmonischen. Laat het oppervlak onafhankelijk beoordelen en leg het oordeel naast het spectrum.</li><li>Leg de detectieregel vast en test op afzonderlijke gelabelde sneden. Tel gemiste chatter en valse meldingen. Beoordeel een voorspelde stabiliteitsgrens apart met proefpunten waarvan toerental, diepte en waargenomen stabiliteit bekend zijn.</li></ol></section>
 <section class="reading">
   <details><summary>Formule en toepassingsgrenzen</summary>

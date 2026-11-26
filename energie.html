@@ -33,10 +33,15 @@
         <input id="power" type="text" inputmode="decimal" value="2" autocomplete="off">
         <label for="time">Duur van het meetvenster <span>min</span></label>
         <input id="time" type="text" inputmode="decimal" value="3" autocomplete="off">
-        <label for="parts">Aantal goede stukken</label>
+        <label for="parts">Aantal goedgekeurde stukken</label>
         <input id="parts" type="text" inputmode="numeric" value="1" autocomplete="off">
+        <label for="quality">Kwaliteitscontrole</label>
+        <select id="quality">
+          <option value="complete">Afgerond</option>
+          <option value="pending">Stukken wachten op controle</option>
+        </select>
       </form>
-      <div class="result"><span>Energie per goed stuk · berekend</span><output for="power time parts" id="value" role="status">0,10 kWh</output></div>
+      <div class="result"><span id="energy-label">Energie per goed stuk · berekend</span><output for="power time parts quality" id="value" aria-labelledby="energy-label" role="status">0,10 kWh</output></div>
       <p id="feedback" class="caption">In dit venster wordt in totaal 0,10 kWh verbruikt.</p>
     </div>
     <figure>
@@ -60,9 +65,9 @@
   
     <h3>Wat kan jouw meetopstelling?</h3>
     <dl class="sources">
-      <div><dt>Sensorbox <a class="model-status estimate" href="bronnen.html#box-energie">Schatting</a></dt><dd>Schat kWh uit RMS-stroom, vaste netspanning en een aangenomen vermogensfactor. Voor kWh per stuk moet ook het aantal stukken in het meetvenster bekend zijn.</dd></div>
-      <div><dt>Sensorbox + machinedata <a class="model-status direct" href="bronnen.html#box-cnc-energie">Direct bruikbaar</a></dt><dd>Levert de CNC actief vermogen of een energieteller, dan bereken je kWh per cyclus. Met een teller voor goede stukken krijg je ook kWh per goed stuk.</dd></div>
-      <div><dt>Sensorbox + machinedata + operatorfeedback <a class="model-status direct" href="bronnen.html#box-cnc-operator-energie">Direct bruikbaar</a></dt><dd>Gebruik CNC-energie of laat de operator een kWh-meter aflezen. Deel het verschil in kWh door het bevestigde aantal goede stukken uit dezelfde periode.</dd></div>
+      <div><dt>Sensorbox <span class="model-status estimate">Schatting</span></dt><dd>Schat kWh uit RMS-stroom, vaste netspanning en een aangenomen vermogensfactor. Voor kWh per stuk moet ook het aantal stukken in het meetvenster bekend zijn. <a href="bronnen.html#box-energie" aria-label="Bekijk deze meetopstelling: Sensorbox">Bekijk deze meetopstelling</a></dd></div>
+      <div><dt>Sensorbox + machinedata <span class="model-status direct">Direct bruikbaar</span></dt><dd>Levert de CNC actief vermogen of een energieteller, dan bereken je kWh per cyclus. Met een teller voor goede stukken krijg je ook kWh per goed stuk. <a href="bronnen.html#box-cnc-energie" aria-label="Bekijk deze meetopstelling: Sensorbox + machinedata">Bekijk deze meetopstelling</a></dd></div>
+      <div><dt>Sensorbox + machinedata + operatorfeedback <span class="model-status direct">Direct bruikbaar</span></dt><dd>Gebruik CNC-energie of laat de operator een kWh-meter aflezen. Deel het verschil in kWh door het bevestigde aantal goede stukken uit dezelfde periode. <a href="bronnen.html#box-cnc-operator-energie" aria-label="Bekijk deze meetopstelling: Sensorbox + machinedata + operatorfeedback">Bekijk deze meetopstelling</a></dd></div>
     </dl>
   </section>
 </main>

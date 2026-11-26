@@ -25,6 +25,12 @@
     <form><label for="v0">Classificatie volgens de operator</label>
 <select id="v0"><option>Snijden</option><option>Spoelen</option></select></form>
     <output class="trial-result" aria-live="polite"></output>
+    <div class="result">
+      <h3>Kwaliteitsstatus van een voorbeeldorder</h3>
+      <p><strong>Voorlopig goedgekeurde fractie: 21/24.</strong></p>
+      <p>21 bevestigd goed · 1 afgekeurd · 2 wachten op controle.</p>
+      <p class="caption">Voor volledige OEE heb je de definitieve kwaliteitsregistratie, geplande productietijd, werkelijke productietijd en een ideale cyclustijd nodig.</p>
+    </div>
   </div>
   <figure><canvas aria-label="Grafiek van het rekenvoorbeeld" role="img"></canvas><figcaption></figcaption></figure>
 </section>
@@ -32,9 +38,9 @@
 <section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Automatisch uit de CNC: cyclus, spiltoerental, programma, werkelijke voeding en tijdstempels. Voor detectie van snijden gebruikt het Python-model toerental en vermogen ten opzichte van nullast. Een stroomtang of trillingssensor kan met bedrijfslabels een activiteitsproxy leveren. Planning, nominale voeding of ideale cyclustijd komen uit werkvoorbereiding. Goede, afgekeurde en eventueel herwerkte stukken komen uit de kwaliteitsregistratie of van de operator.</p>
     <h3>Wat kan jouw meetopstelling?</h3>
     <dl class="sources">
-      <div><dt>Sensorbox <a class="model-status estimate" href="bronnen.html#box-machinebenutting">Schatting</a></dt><dd>Uit de stroom schat je hoe lang de machine actief is. Hulpverbruik kan meetellen. Voor OEE ontbreken onder meer productieaantallen.</dd></div>
-      <div><dt>Sensorbox + machinedata <a class="model-status direct" href="bronnen.html#box-cnc-machinebenutting">Direct bruikbaar</a></dt><dd>Met CNC-toestanden en cyclusgrenzen tel je draai- en stilstandtijd. De stroom helpt snijtijd te schatten. Volledige OEE vraagt ook planning, ideale cyclustijd en goede aantallen.</dd></div>
-      <div><dt>Sensorbox + machinedata + operatorfeedback <a class="model-status direct" href="bronnen.html#box-cnc-operator-machinebenutting">Direct bruikbaar</a></dt><dd>De CNC levert toestandstijden. Met geplande productietijd, ideale cyclustijd en aantallen goed en afgekeurd kan de operator de OEE vervolledigen.</dd></div>
+      <div><dt>Sensorbox <span class="model-status estimate">Schatting</span></dt><dd>Uit de stroom schat je hoe lang de machine actief is. Hulpverbruik kan meetellen. Voor OEE ontbreken onder meer productieaantallen. <a href="bronnen.html#box-machinebenutting" aria-label="Bekijk deze meetopstelling: Sensorbox">Bekijk deze meetopstelling</a></dd></div>
+      <div><dt>Sensorbox + machinedata <span class="model-status direct">Direct bruikbaar</span></dt><dd>Met CNC-toestanden en cyclusgrenzen tel je draai- en stilstandtijd. De stroom helpt snijtijd te schatten. Volledige OEE vraagt ook planning, ideale cyclustijd en goede aantallen. <a href="bronnen.html#box-cnc-machinebenutting" aria-label="Bekijk deze meetopstelling: Sensorbox + machinedata">Bekijk deze meetopstelling</a></dd></div>
+      <div><dt>Sensorbox + machinedata + operatorfeedback <span class="model-status direct">Direct bruikbaar</span></dt><dd>De CNC levert toestandstijden. Met geplande productietijd, ideale cyclustijd en aantallen goed en afgekeurd kan de operator de OEE vervolledigen. <a href="bronnen.html#box-cnc-operator-machinebenutting" aria-label="Bekijk deze meetopstelling: Sensorbox + machinedata + operatorfeedback">Bekijk deze meetopstelling</a></dd></div>
     </dl>
   </section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een operator kan een stroom- of trillingsplateau herkennen als bijvoorbeeld werken, spoelen of wachten. Stel dat de detectie in een uur 48 minuten als snijden telt. Uit het programmalog blijkt dat zes van die minuten spoelen waren. Als de overige intervallen juist zijn, daalt het geschatte aandeel snijtijd van 80% naar <strong>70%</strong>.</p></section>

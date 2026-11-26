@@ -6,6 +6,8 @@ const fields = [...form.querySelectorAll("input")];
 const result = document.querySelector("#value");
 const feedback = document.querySelector("#feedback");
 const canvas = document.querySelector("#chart");
+const quality = form.querySelector("#quality");
+const energyLabel = document.querySelector("#energy-label");
 const format = new Intl.NumberFormat("nl-BE", {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2
@@ -18,6 +20,12 @@ function readValue(field) {
 }
 
 function update() {
+  const pending = quality?.value === "pending";
+  if (energyLabel) {
+    energyLabel.textContent = pending
+      ? "Energie per voorlopig goedgekeurd stuk"
+      : "Energie per goed stuk · berekend";
+  }
   const values = fields.map(readValue);
   const validFields = values.map((value, index) => {
     if (!Number.isFinite(value) || value < 0) {
@@ -62,7 +70,9 @@ function update() {
   } else {
     result.value = values[2] === 0 ? "—" : asText(answer) + " kWh";
     const totalText = "Totaal in dit venster: " + asText(total) + " kWh.";
-    feedback.textContent = values[2] === 0 ? totalText + " Er zijn geen goede stukken." : totalText;
+    const noParts = values[2] === 0 ? " Er zijn geen goedgekeurde stukken." : "";
+    const status = pending ? " Werk na de eindcontrole alleen het aantal goedgekeurde stukken bij. Het verbruik in dit meetvenster blijft gelijk." : "";
+    feedback.textContent = totalText + noParts + status;
   }
   draw({ values, answer });
 }

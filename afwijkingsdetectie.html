@@ -21,7 +21,7 @@
 <div><dt>Frezen</dt><dd>Vergelijk dezelfde freesbaan, gereedschaps-ID en ingreep. Label aanlopen, hoeken en ijlgangen zodat normale belastingssprongen herkenbaar blijven.</dd></div>
 </dl></section>
 <section class="lab" data-model="afwijkingsdetectie" aria-label="Vergelijk een cyclus met de referentie">
-  <div class="lab-controls"><h2>Vergelijk een cyclus met de referentie</h2><p>De fictieve referentie voor dezelfde programmafase is 2,0 kW met een standaardafwijking van 0,1 kW. Vergelijk twee cycli van vijf opeenvolgende samples.</p>
+  <div class="lab-controls"><h2>Vergelijk een cyclus met de referentie</h2><p>De fictieve referentie voor dezelfde programmafase is 2,0 kW met een standaardafwijking van 0,1 kW. Vergelijk twee cycli van elk vijf opeenvolgende meetpunten.</p>
     <form><label for="v0">Cyclus</label>
 <select id="v0"><option>A</option><option>B</option></select>
 <label for="v1">Meldgrens (standaardafwijkingen)</label>
@@ -34,9 +34,9 @@
 <section class="reading"><h2>Welke gegevens heb je nodig?</h2><p><strong>Invoer.</strong> Eén tijdreeks met geldige waarden en een referentie uit vergelijkbare cycli volstaan voor een eerste kanaal. Geschikt zijn bijvoorbeeld actief vermogen in W, acceleratie-RMS in m/s² of AE-RMS met vastgelegde schaal. De Python-module kan ook modeluitkomsten bewaken. Leg machine, programma, gereedschap, materiaal, tijdstap en sensorpositie vast. Laat de operator normale overgangen, geplande wissels en bekende incidenten labelen.</p>
     <h3>Wat kan jouw meetopstelling?</h3>
     <dl class="sources">
-      <div><dt>Sensorbox <a class="model-status indicator" href="bronnen.html#box-afwijkingsdetectie">Alleen indicatie</a></dt><dd>Bij herhalend werk kun je een afwijkend stroom- of trillingspatroon herkennen. De box moet de cyclusgrenzen zelf schatten.</dd></div>
-      <div><dt>Sensorbox + machinedata <a class="model-status direct" href="bronnen.html#box-cnc-afwijkingsdetectie">Direct bruikbaar</a></dt><dd>Gebruik de programmastap als startpunt. Vergelijk stroom en trilling telkens tijdens dezelfde snede.</dd></div>
-      <div><dt>Sensorbox + machinedata + operatorfeedback <a class="model-status direct" href="bronnen.html#box-cnc-operator-afwijkingsdetectie">Direct bruikbaar</a></dt><dd>De box signaleert een afwijking per programmastap. De operator geeft aan of het om een incident of een normale overgang ging.</dd></div>
+      <div><dt>Sensorbox <span class="model-status indicator">Alleen indicatie</span></dt><dd>Bij herhalend werk kun je een afwijkend stroom- of trillingspatroon herkennen. De box moet de cyclusgrenzen zelf schatten. <a href="bronnen.html#box-afwijkingsdetectie" aria-label="Bekijk deze meetopstelling: Sensorbox">Bekijk deze meetopstelling</a></dd></div>
+      <div><dt>Sensorbox + machinedata <span class="model-status direct">Direct bruikbaar</span></dt><dd>Gebruik de programmastap als startpunt. Vergelijk stroom en trilling telkens tijdens dezelfde snede. <a href="bronnen.html#box-cnc-afwijkingsdetectie" aria-label="Bekijk deze meetopstelling: Sensorbox + machinedata">Bekijk deze meetopstelling</a></dd></div>
+      <div><dt>Sensorbox + machinedata + operatorfeedback <span class="model-status direct">Direct bruikbaar</span></dt><dd>De box signaleert een afwijking per programmastap. De operator geeft aan of het om een incident of een normale overgang ging. <a href="bronnen.html#box-cnc-operator-afwijkingsdetectie" aria-label="Bekijk deze meetopstelling: Sensorbox + machinedata + operatorfeedback">Bekijk deze meetopstelling</a></dd></div>
     </dl>
   </section>
 <section class="reading"><h2>Wat voegt meten op je eigen machine toe?</h2><p>Een referentie per bewerkingsfase voorkomt dat een normale gereedschapswissel als incident verschijnt. Stel dat het actieve vermogen in dezelfde snede gemiddeld 2,0 kW bedraagt met een standaardafwijking van 0,1 kW. Een waarde van 2,4 kW ligt <strong>vier standaardafwijkingen</strong> boven dat gemiddelde. De score wijst een tijdstip aan voor onderzoek.</p></section>
